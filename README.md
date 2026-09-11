@@ -1,5 +1,18 @@
-# [Join cheaperuh (čipera) party](https://join.cheaperuh.party)
+# [Join cheaperuh party](https://join.cheaperuh.party)
+
 Join cheaperuh (čipera) PARTY
+
 ## Can AI really adjust its intelligence to real tasks? 
+
+## Cursor Projects Beta Launched on September 10, 2026 
+
+Projects shifts Cursor from a file-level editor into an autonomous agent manager:
+
+ - **The Coordinator Agent:** When you start a Project and describe a massive goal (like a full app migration or building an entire feature), a top-level Coordinator Agent takes over. The coordinator doesn't actually write code; instead, it acts as a project manager—planning the architecture, mapping out the roadmap, and spawning thousands of subagents to execute individual pieces. 
+
+ - **Under the Hood:** Recursive Swarm Architecture
+
+So question is? Can AI really guess level of inteligence needed per tats so it will not burd all you credit and pacience with swarm of 1000 agents?
+
 
 AI Tinkerers Prague Hackhaton 12.9.2026
