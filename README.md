@@ -1,2 +1,5 @@
 # [Join cheaperuh (čipera) party](https://join.cheaperuh.party)
-Join cheaperuh (čipera) PARTY - Can AI really adjust its intelligence to real task? [AI Tinkerers Prague Hackhaton]
+Join cheaperuh (čipera) PARTY
+## Can AI really adjust its intelligence to real task? 
+
+AI Tinkerers Prague Hackhaton 12.9.2026
