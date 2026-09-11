@@ -15,4 +15,4 @@ Projects shifts Cursor from a file-level editor into an autonomous agent manager
 So question is? Can AI really guess level of inteligence needed per tats so it will not burd all you credit and pacience with swarm of 1000 agents?
 
 
-AI Tinkerers Prague Hackhaton 12.9.2026
+AI Tinkerers Prague Hackathon 12.9.2026 - part of the global [Agents, Everywhere: Bots, Channels, & More - Global Hackathon](https://hyderabad.aitinkerers.org/p/agents-everywhere-bots-channels-more-global-hackathon), see link for details
