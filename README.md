@@ -2,6 +2,8 @@
 
 Join cheaperuh (čipera) PARTY
 
+In Czech, the word čipera means a lively, brisk, nimble, or energetic person (often used affectionately for an active child). In this project it is used in a sarcastic way - AI is many times too overcommitted to do the task ...
+
 ## Can AI really adjust its intelligence to real tasks? 
 
 ## Cursor Projects Beta Launched on September 10, 2026 
