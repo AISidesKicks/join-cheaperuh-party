@@ -19,4 +19,4 @@ So question is? Can AI really guess level of inteligence needed per tats so it w
 ![Models are not inherently lazy - reasoning levels and AI harness multi-agent orchestration](docs/assets/images/6reasoning-levels.jpeg)
 
 
-AI Tinkerers Prague Hackathon 12.9.2026 - part of the global [Agents, Everywhere: Bots, Channels, & More - Global Hackathon](https://hyderabad.aitinkerers.org/p/agents-everywhere-bots-channels-more-global-hackathon), see link for details
+AI Tinkerers Prague Hackathon 12.9.2026 - part of the global [Agents, Everywhere: Bots, Channels, & More - Global Hackathon](https://prague.aitinkerers.org/p/agents-everywhere-bots-channels-more-global-hackathon), see link for details
