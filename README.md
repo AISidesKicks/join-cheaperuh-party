@@ -8,13 +8,13 @@ In Czech, the word čipera means a lively, brisk, nimble, or energetic person (o
 
 ## Cursor Projects Beta Launched on September 10, 2026 
 
-Projects shifts Cursor from a file-level editor into an autonomous agent manager:
+Projects shift Cursor from a file-level editor into an autonomous agent manager:
 
- - **The Coordinator Agent:** When you start a Project and describe a massive goal (like a full app migration or building an entire feature), a top-level Coordinator Agent takes over. The coordinator doesn't actually write code; instead, it acts as a project manager—planning the architecture, mapping out the roadmap, and spawning thousands of subagents to execute individual pieces. 
+ - **The Coordinator Agent:** When you start a Project and describe a massive goal (like a full app migration or building an entire feature), a top-level Coordinator Agent takes over. The coordinator doesn't actually write code; instead, it acts as a project manager - planning the architecture, mapping out the roadmap, and spawning thousands of subagents to execute individual pieces. 
 
  - **Under the Hood:** Recursive Swarm Architecture
 
-So question is? Can AI really guess level of inteligence needed per tats so it will not burd all you credit and pacience with swarm of 1000 agents?
+So the question is: can AI really guess the level of intelligence needed per task so it will not burn all your credit and patience with a swarm of 1000 agents?
 
 ![Models are not inherently lazy - reasoning levels and AI harness multi-agent orchestration](docs/assets/images/6reasoning-levels.jpeg)
 
