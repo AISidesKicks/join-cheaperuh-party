@@ -73,9 +73,9 @@ The revised supervisor defaults to `none`. It may escalate only when the vague b
 Compare it against two controls with the same three-attempt groups:
 
 ```bash
-npm run benchmark:live -- --strategy=supervisor --limit=27
-npm run benchmark:live -- --strategy=none --limit=27
-npm run benchmark:live -- --strategy=high --limit=27
+npm run benchmark:live -- --strategy=supervisor --run=restraint-v2 --limit=27
+npm run benchmark:live -- --strategy=none --run=restraint-v2 --limit=27
+npm run benchmark:live -- --strategy=high --run=restraint-v2 --limit=27
 ```
 
 This separates harmful underthinking from harmless overthinking: if `none` fails where `high` succeeds, it is harmful; if the revised supervisor matches `high` while costing less, it is calibrated restraint.

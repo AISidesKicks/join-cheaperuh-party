@@ -4,11 +4,12 @@ import { ATTEMPTS_PER_CHOICE, DEMO_TASKS, SUPERVISOR_CHOICES, SUPPORTED_EFFORTS,
 const args = new Set(process.argv.slice(2));
 const live = args.has("--live");
 const strategy = process.argv.find((arg) => arg.startsWith("--strategy="))?.split("=")[1] ?? "supervisor";
+const runId = process.argv.find((arg) => arg.startsWith("--run="))?.split("=")[1] ?? "v1";
 const limit = Number(process.argv.find((arg) => arg.startsWith("--limit="))?.split("=")[1] ?? 0);
 const groups = DEMO_TASKS.flatMap((task) => Array.from({ length: SUPERVISOR_CHOICES }, (_, choice) => ({ task, choice: choice + 1 })));
 
 if (!live) {
-  console.log(JSON.stringify({ candidateTasks: 33, selectedDemoTasks: DEMO_TASKS.length, categories: new Set(DEMO_TASKS.map((task) => task.category)).size, supervisorChoicesPerTask: SUPERVISOR_CHOICES, attemptsPerChoice: ATTEMPTS_PER_CHOICE, taskRequests: groups.length * ATTEMPTS_PER_CHOICE, supervisorRequests: strategy === "supervisor" ? groups.length : 0, selectableEfforts: SUPPORTED_EFFORTS, strategies: ["supervisor", "none", "high"], note: "The supervisor defaults to none and escalates only for stated evidence. Baselines bypass the supervisor." }, null, 2));
+  console.log(JSON.stringify({ runId, candidateTasks: 33, selectedDemoTasks: DEMO_TASKS.length, categories: new Set(DEMO_TASKS.map((task) => task.category)).size, supervisorChoicesPerTask: SUPERVISOR_CHOICES, attemptsPerChoice: ATTEMPTS_PER_CHOICE, taskRequests: groups.length * ATTEMPTS_PER_CHOICE, supervisorRequests: strategy === "supervisor" ? groups.length : 0, selectableEfforts: SUPPORTED_EFFORTS, strategies: ["supervisor", "none", "high"], note: "The supervisor defaults to none and escalates only for stated evidence. Baselines bypass the supervisor." }, null, 2));
   process.exit(0);
 }
 if (!Number.isInteger(limit) || limit < 1 || limit > groups.length) throw new Error(`Live runs require --limit=1..${groups.length}; one unit is a supervisor choice plus three task attempts.`);
@@ -18,8 +19,8 @@ process.loadEnvFile(".env");
 const apiKey = process.env.OPENROUTER_API_KEY;
 const model = process.env.OPENROUTER_MODEL ?? "deepseek/deepseek-v4.1-flash";
 if (!apiKey) throw new Error("OPENROUTER_API_KEY is required in .env");
-const outputPath = `results/openrouter-${strategy}-demo.jsonl`;
-const decisionsPath = `results/openrouter-${strategy}-demo-decisions.jsonl`;
+const outputPath = `results/openrouter-${strategy}-${runId}.jsonl`;
+const decisionsPath = `results/openrouter-${strategy}-${runId}-decisions.jsonl`;
 await mkdir("results", { recursive: true });
 const existingRecords = (await readFile(outputPath, "utf8").catch(() => "")).split("\n").filter(Boolean).map((line) => JSON.parse(line) as { taskId: string; choice: number; attempt: number; effort: ReasoningEffort });
 const recordsFor = (taskId: string, choice: number) => existingRecords.filter((record) => record.taskId === taskId && record.choice === choice);
