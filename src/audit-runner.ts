@@ -49,8 +49,9 @@ async function runGroup({ task, effort }: { task: BenchmarkTask; effort: Reasoni
   return { task, effort, results };
 }
 
-for (let start = 0; start < pending.length; start += 8) {
-  const batch = await Promise.allSettled(pending.slice(start, start + 8).map(runGroup));
+const AUDIT_CONCURRENCY = 16;
+for (let start = 0; start < pending.length; start += AUDIT_CONCURRENCY) {
+  const batch = await Promise.allSettled(pending.slice(start, start + AUDIT_CONCURRENCY).map(runGroup));
   for (const outcome of batch) {
     if (outcome.status === "rejected") { console.error(`Audit group failed and can be resumed: ${outcome.reason instanceof Error ? outcome.reason.message : "unknown error"}`); continue; }
     for (const result of outcome.value.results) await appendFile(outputPath, `${JSON.stringify(result)}\n`);
