@@ -62,17 +62,27 @@ Select exactly one effort from: ${SUPPORTED_EFFORTS.join(", ")}. Reply in exactl
   return { effort: selected, rationale: reasonMatch?.[1].trim() ?? "No rationale returned.", usage: supervisor.usage };
 }
 
-for (const { task, choice } of groups.filter(({ task, choice }) => !completed.has(`${task.id}:${choice}`)).slice(0, limit)) {
+const pendingGroups = groups.filter(({ task, choice }) => !completed.has(`${task.id}:${choice}`)).slice(0, limit);
+
+async function runGroup({ task, choice }: { task: BenchmarkTask; choice: number }) {
   const previous = recordsFor(task.id, choice);
   const recordedDecision = decisionFor(task.id, choice);
   const decision = recordedDecision ?? (previous[0] ? { effort: previous[0].effort, rationale: "Resumed existing group." } : strategy === "supervisor" ? await chooseEffort(task) : { effort: strategy as ReasoningEffort, rationale: `Always-${strategy} baseline.` });
   const effort = decision.effort;
-  if (!recordedDecision) await appendFile(decisionsPath, `${JSON.stringify({ taskId: task.id, category: task.category, choice, effort, rationale: decision.rationale, usage: "usage" in decision ? decision.usage : undefined, model, startedAt: new Date().toISOString() })}\n`);
   const pendingAttempts = Array.from({ length: ATTEMPTS_PER_CHOICE }, (_, index) => index + 1).filter((attempt) => !previous.some((record) => record.attempt === attempt));
   const completedAttempts = await Promise.all(pendingAttempts.map(async (attempt) => {
     const result = await complete([{ role: "user", content: task.prompt }], effort);
     return { taskId: task.id, category: task.category, choice, attempt, effort, success: isCorrect(task, result.content), usage: result.usage, model, response: result.content, startedAt: new Date().toISOString() };
   }));
-  for (const result of completedAttempts) await appendFile(outputPath, `${JSON.stringify(result)}\n`);
-  console.log(`${task.id} choice=${choice} effort=${effort} attempts=${ATTEMPTS_PER_CHOICE}`);
+  return { task, choice, effort, decision, recordedDecision, completedAttempts };
+}
+
+const GROUP_CONCURRENCY = 3;
+for (let start = 0; start < pendingGroups.length; start += GROUP_CONCURRENCY) {
+  const batch = await Promise.all(pendingGroups.slice(start, start + GROUP_CONCURRENCY).map(runGroup));
+  for (const group of batch) {
+    if (!group.recordedDecision) await appendFile(decisionsPath, `${JSON.stringify({ taskId: group.task.id, category: group.task.category, choice: group.choice, effort: group.effort, rationale: group.decision.rationale, usage: "usage" in group.decision ? group.decision.usage : undefined, model, startedAt: new Date().toISOString() })}\n`);
+    for (const result of group.completedAttempts) await appendFile(outputPath, `${JSON.stringify(result)}\n`);
+    console.log(`${group.task.id} choice=${group.choice} effort=${group.effort} attempts=${ATTEMPTS_PER_CHOICE}`);
+  }
 }
