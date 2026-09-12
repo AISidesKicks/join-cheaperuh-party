@@ -35,9 +35,9 @@ The target is `deepseek/deepseek-v4.1-flash` through OpenRouter. The supervisor 
 
 OpenRouter validates these named values. It does not accept the model's native numeric 1-100 effort values through its chat-completions gateway. See the [OpenRouter reasoning guide](https://openrouter.ai/docs/guides/best-practices/reasoning-tokens), [OpenRouter model page](https://openrouter.ai/deepseek/deepseek-v4.1-flash), and [DeepSeek V4.1 reference](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/main/encoding/README.md).
 
-## Budget demo: 33 candidates, 9 selected tasks
+## Measured demo: 33 candidates, 27 selected tasks
 
-The repository contains a diverse bank of 33 original deterministic tasks across nine categories. The paid demo selects one task per category, for nine tasks total. With three supervisor choices and three worker attempts per choice, this is 81 worker calls plus 27 supervisor calls.
+The repository contains a diverse bank of 33 original deterministic tasks across nine categories. The measured demo selects three graded tasks per category, for 27 tasks total. With three supervisor choices and three worker attempts per choice, one strategy arm makes 243 worker calls. The full comparison adds always-`none` and always-`high` controls, for 729 canonical worker attempts and 81 supervisor calls.
 
 | Category | Vague brief tests |
 |---|---|
@@ -55,18 +55,20 @@ Task shapes are original distillations inspired by [MMLU-Pro](https://arxiv.org/
 
 ## Metrics
 
-- **Success rate**: verified correct answers over all 81 canonical worker attempts.
+- **Success rate**: verified correct answers over all 243 canonical worker attempts per strategy.
 - **Selected efforts**: the supervisor's three independent choices.
 - **Zero-reasoning selection rate**: how often the supervisor declines thinking.
-- **Mean token use**: observed provider usage, enabling cost comparison across task categories.
+- **Worker, supervisor, and combined cost**: observed provider usage and dollars, so routing overhead is visible.
 
 The static site provides recorded success, token-use, and effort snapshots, plus an interactive 3D frontier. New runs can replace those snapshots with their own JSONL report.
 
-### Recorded demo snapshot
+### Recorded expanded calibration
 
-The completed OpenRouter demo produced 81 canonical worker attempts. It verified 75 answers, for a **92.6% success rate**. The interrupted early run created 25 duplicate records; analysis intentionally excludes those duplicates.
+The completed OpenRouter comparison uses DeepSeek V4.1 Flash. After deterministic rescoring, the free-choice supervisor verified **222 of 243 answers (91.4%)**. Always-`none` verified **218 of 243 (89.7%)** and always-`high` verified **208 of 243 (85.6%)**.
 
-The supervisor selected `low` 20 times, `medium` 6 times, and `minimal` once. It selected `none` **zero times**. The result is exactly the kind of failure this project is designed to reveal: good completion accuracy, but no willingness to save money on tasks such as direct extraction and one-line repair.
+The supervisor's canonical combined cost was **$0.0246**, including **$0.0047** of supervisor overhead. Always-`none` cost **$0.0037**; always-`high` cost **$0.0304**. The result is deliberately not a victory lap: the supervisor improves accuracy slightly over `none`, but the cost gap shows that its routing policy still needs calibration.
+
+The static demo reads the complete sanitized [expanded calibration data](docs/data/expanded-v1.json): every category-task row, three selected efforts, short supervisor rationales, success counts, token totals, and costs. Responses and credentials are excluded.
 
 ## Next iteration: calibrated restraint
 
@@ -75,9 +77,10 @@ The revised supervisor defaults to `none`. It may escalate only when the vague b
 Compare it against two controls with the same three-attempt groups:
 
 ```bash
-npm run benchmark:live -- --strategy=supervisor --run=restraint-v2 --limit=27
-npm run benchmark:live -- --strategy=none --run=restraint-v2 --limit=27
-npm run benchmark:live -- --strategy=high --run=restraint-v2 --limit=27
+npm run benchmark:live -- --strategy=supervisor --run=my-run --limit=81
+npm run benchmark:live -- --strategy=none --run=my-run --limit=81
+npm run benchmark:live -- --strategy=high --run=my-run --limit=81
+npm run benchmark:publish -- --run=my-run
 ```
 
 This separates harmful underthinking from harmless overthinking: if `none` fails where `high` succeeds, it is harmful; if the revised supervisor matches `high` while costing less, it is calibrated restraint.
@@ -97,7 +100,7 @@ The plan makes no network calls. For a bounded paid pilot, place `OPENROUTER_API
 npm run benchmark:live -- --strategy=supervisor --run=my-run --limit=1
 ```
 
-One limit unit makes one supervisor request and three worker attempts. The full selected demo is `--limit=27`. Results append to ignored `results/openrouter-<strategy>-<run>.jsonl`; analyze a complete run with `npm run benchmark:analyze -- results/openrouter-supervisor-my-run.jsonl --write`. The runner never prints the API key.
+One limit unit makes one supervisor request and three worker attempts. The full selected demo is `--limit=81`. Results append to ignored `results/openrouter-<strategy>-<run>.jsonl`; analyze a complete run with `npm run benchmark:analyze -- results/openrouter-supervisor-my-run.jsonl --write`, then publish its sanitized static dataset with `npm run benchmark:publish -- --run=my-run`. The runner never prints the API key.
 
 ## Design notes
 
@@ -105,5 +108,6 @@ One limit unit makes one supervisor request and three worker attempts. The full 
 - [Rubric and metrics](design/02-rubric-and-metrics.md)
 - [Implementation and validation](design/03-implementation-and-validation.md)
 - [Calibrated restraint](design/04-calibrated-restraint.md)
+- [Expanded calibration](design/05-expanded-calibration.md)
 
 AI Tinkerers Prague Hackathon 12.9.2026 - part of the global [Agents, Everywhere: Bots, Channels, & More - Global Hackathon](https://prague.aitinkerers.org/p/agents-everywhere-bots-channels-more-global-hackathon).
