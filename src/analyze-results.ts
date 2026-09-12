@@ -18,7 +18,7 @@ export function taskMetrics(records: RunRecord[]) {
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const path = process.argv.slice(2).find((arg) => !arg.startsWith("--")) ?? "results/openrouter-supervisor-demo.jsonl";
   const records = (await readFile(path, "utf8")).trim().split("\n").filter(Boolean).map((line) => JSON.parse(line) as RunRecord);
-  const decisionsPath = "results/openrouter-supervisor-decisions.jsonl";
+  const decisionsPath = path.replace(/\.jsonl$/, "-decisions.jsonl");
   const decisions = (await readFile(decisionsPath, "utf8").catch(() => "")).split("\n").filter(Boolean).map((line) => JSON.parse(line) as SupervisorDecision);
   const canonical = records.filter((record, index) => records.filter((candidate) => candidate.taskId === record.taskId && candidate.choice === record.choice).indexOf(record) < ATTEMPTS_PER_CHOICE).map((record) => {
     const task = DEMO_TASKS.find((candidate) => candidate.id === record.taskId);

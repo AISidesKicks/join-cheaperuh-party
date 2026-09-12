@@ -3,21 +3,23 @@ import { ATTEMPTS_PER_CHOICE, DEMO_TASKS, SUPERVISOR_CHOICES, SUPPORTED_EFFORTS,
 
 const args = new Set(process.argv.slice(2));
 const live = args.has("--live");
+const strategy = process.argv.find((arg) => arg.startsWith("--strategy="))?.split("=")[1] ?? "supervisor";
 const limit = Number(process.argv.find((arg) => arg.startsWith("--limit="))?.split("=")[1] ?? 0);
 const groups = DEMO_TASKS.flatMap((task) => Array.from({ length: SUPERVISOR_CHOICES }, (_, choice) => ({ task, choice: choice + 1 })));
 
 if (!live) {
-  console.log(JSON.stringify({ candidateTasks: 33, selectedDemoTasks: DEMO_TASKS.length, categories: new Set(DEMO_TASKS.map((task) => task.category)).size, supervisorChoicesPerTask: SUPERVISOR_CHOICES, attemptsPerChoice: ATTEMPTS_PER_CHOICE, taskRequests: groups.length * ATTEMPTS_PER_CHOICE, supervisorRequests: groups.length, selectableEfforts: SUPPORTED_EFFORTS, note: "The supervisor sees only a vague brief, chooses any supported effort including none, then the task runs three times at that choice." }, null, 2));
+  console.log(JSON.stringify({ candidateTasks: 33, selectedDemoTasks: DEMO_TASKS.length, categories: new Set(DEMO_TASKS.map((task) => task.category)).size, supervisorChoicesPerTask: SUPERVISOR_CHOICES, attemptsPerChoice: ATTEMPTS_PER_CHOICE, taskRequests: groups.length * ATTEMPTS_PER_CHOICE, supervisorRequests: strategy === "supervisor" ? groups.length : 0, selectableEfforts: SUPPORTED_EFFORTS, strategies: ["supervisor", "none", "high"], note: "The supervisor defaults to none and escalates only for stated evidence. Baselines bypass the supervisor." }, null, 2));
   process.exit(0);
 }
 if (!Number.isInteger(limit) || limit < 1 || limit > groups.length) throw new Error(`Live runs require --limit=1..${groups.length}; one unit is a supervisor choice plus three task attempts.`);
+if (strategy !== "supervisor" && strategy !== "none" && strategy !== "high") throw new Error("Strategy must be supervisor, none, or high.");
 
 process.loadEnvFile(".env");
 const apiKey = process.env.OPENROUTER_API_KEY;
 const model = process.env.OPENROUTER_MODEL ?? "deepseek/deepseek-v4.1-flash";
 if (!apiKey) throw new Error("OPENROUTER_API_KEY is required in .env");
-const outputPath = "results/openrouter-supervisor-demo.jsonl";
-const decisionsPath = "results/openrouter-supervisor-decisions.jsonl";
+const outputPath = `results/openrouter-${strategy}-demo.jsonl`;
+const decisionsPath = `results/openrouter-${strategy}-demo-decisions.jsonl`;
 await mkdir("results", { recursive: true });
 const existingRecords = (await readFile(outputPath, "utf8").catch(() => "")).split("\n").filter(Boolean).map((line) => JSON.parse(line) as { taskId: string; choice: number; attempt: number; effort: ReasoningEffort });
 const recordsFor = (taskId: string, choice: number) => existingRecords.filter((record) => record.taskId === taskId && record.choice === choice);
@@ -31,17 +33,19 @@ async function complete(messages: Array<{ role: "system" | "user"; content: stri
 }
 
 async function chooseEffort(task: BenchmarkTask) {
-  const supervisor = await complete([{ role: "system", content: `You are a cost-conscious reasoning supervisor. You see only a vague task brief. Select exactly one effort from: ${SUPPORTED_EFFORTS.join(", ")}. Prefer the least effort likely to complete the task. Reply with only that effort word.` }, { role: "user", content: task.brief }], "none");
-  const selected = supervisor.content.trim().toLowerCase() as ReasoningEffort;
-  if (!SUPPORTED_EFFORTS.includes(selected)) throw new Error(`Supervisor returned an unsupported effort.`);
-  return { effort: selected, usage: supervisor.usage };
+  const supervisor = await complete([{ role: "system", content: `You are a cost-conscious reasoning supervisor. You see only a vague task brief. Default to none. Escalate only when the brief gives evidence of multi-step state, ambiguity, dependency chains, debugging, or test design. Select exactly one effort from: ${SUPPORTED_EFFORTS.join(", ")}. Reply in exactly two lines: EFFORT: <value> and REASON: <five words or fewer>.` }, { role: "user", content: task.brief }], "none");
+  const effortMatch = supervisor.content.match(/EFFORT:\s*(none|minimal|low|medium|high|xhigh|max)/i);
+  const reasonMatch = supervisor.content.match(/REASON:\s*(.+)/i);
+  const selected = effortMatch?.[1].toLowerCase() as ReasoningEffort | undefined;
+  if (!selected || !SUPPORTED_EFFORTS.includes(selected)) throw new Error("Supervisor returned an unsupported effort.");
+  return { effort: selected, rationale: reasonMatch?.[1].trim() ?? "No rationale returned.", usage: supervisor.usage };
 }
 
 for (const { task, choice } of groups.filter(({ task, choice }) => !completed.has(`${task.id}:${choice}`)).slice(0, limit)) {
   const previous = recordsFor(task.id, choice);
-  const decision = previous[0] ? { effort: previous[0].effort } : await chooseEffort(task);
+  const decision = previous[0] ? { effort: previous[0].effort, rationale: "Resumed existing group." } : strategy === "supervisor" ? await chooseEffort(task) : { effort: strategy as ReasoningEffort, rationale: `Always-${strategy} baseline.` };
   const effort = decision.effort;
-  if ("usage" in decision) await appendFile(decisionsPath, `${JSON.stringify({ taskId: task.id, category: task.category, choice, effort, usage: decision.usage, model, startedAt: new Date().toISOString() })}\n`);
+  await appendFile(decisionsPath, `${JSON.stringify({ taskId: task.id, category: task.category, choice, effort, rationale: decision.rationale, usage: "usage" in decision ? decision.usage : undefined, model, startedAt: new Date().toISOString() })}\n`);
   const pendingAttempts = Array.from({ length: ATTEMPTS_PER_CHOICE }, (_, index) => index + 1).filter((attempt) => !previous.some((record) => record.attempt === attempt));
   const completedAttempts = await Promise.all(pendingAttempts.map(async (attempt) => {
     const result = await complete([{ role: "user", content: task.prompt }], effort);
