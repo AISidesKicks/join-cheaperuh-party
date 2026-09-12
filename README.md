@@ -60,6 +60,12 @@ Task shapes are original distillations inspired by [MMLU-Pro](https://arxiv.org/
 
 The static site provides illustrative accuracy, cost, and marginal ROI chart snapshots, plus an interactive 3D frontier. Replace illustration data with recorded JSONL before making performance claims.
 
+### Recorded demo snapshot
+
+The completed OpenRouter demo produced 81 canonical worker attempts. It verified 75 answers, for a **92.6% success rate**. The interrupted early run created 25 duplicate records; analysis intentionally excludes those duplicates.
+
+The supervisor selected `low` 20 times, `medium` 6 times, and `minimal` once. It selected `none` **zero times**. The result is exactly the kind of failure this project is designed to reveal: good completion accuracy, but no willingness to save money on tasks such as direct extraction and one-line repair.
+
 ## Run it
 
 ```bash
