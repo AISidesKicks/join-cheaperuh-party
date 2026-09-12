@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="cheaperuh-build" content="2026.09.12-effort-audit.4">
+  <meta name="cheaperuh-build" content="2026.09.12-effort-audit.5">
   <title>Join cheaperuh party - reasoning router</title>
   <style>
     :root { --bg:#0b1020; --surface:#141b31; --fg:#edf2ff; --muted:#aab7d4; --accent:#65d6a1; --blue:#7aa7ff; --orange:#ffb86b; --border:#2d3858; }
@@ -30,7 +30,7 @@
 
     <section><h2>Measured three-arm comparison</h2><p class="note">Each strategy made 243 canonical worker attempts. Cost includes the supervisor's own selection calls where applicable.</p><div class="table-wrap"><table><thead><tr><th>Strategy</th><th>Verified</th><th>Worker tokens</th><th>Worker cost</th><th>Supervisor cost</th><th>Combined cost</th></tr></thead><tbody id="strategyRows"></tbody></table></div></section>
 
-    <section><h2>3D task frontier</h2><div class="explorer"><canvas id="frontier" width="760" height="490" tabindex="0" role="img" aria-label="Measured interactive 3D task frontier. Drag to rotate and click a point for task details."></canvas><div><label for="effort">Highlight supervisor effort</label><input id="effort" type="range" min="0" max="6" value="2" step="1" aria-describedby="frontierStatus"><div class="readout" id="effortValue">low</div><p id="frontierStatus" role="status">Loading measured task data.</p><button id="resetFrontier" type="button">Reset view</button><p class="note" id="frontierDetail">Drag to rotate. Click a point for its measured result.</p><ul class="frontier-list" id="frontierMatches" aria-label="Tasks highlighted by selected effort"></ul><p class="note">Axes: x audited task difficulty, y mean supervisor effort, z mean worker token cost. The selected effort is highlighted in green.</p></div></div></section>
+    <section><h2>3D task frontier</h2><div class="explorer"><canvas id="frontier" width="760" height="490" tabindex="0" role="img" aria-label="Measured interactive 3D task frontier. Drag to rotate and click a point for task details."></canvas><div><label for="effort">Highlight supervisor effort</label><input id="effort" type="range" min="0" max="6" value="2" step="1" aria-describedby="frontierStatus"><div class="readout" id="effortValue">low</div><p id="frontierStatus" role="status">Loading measured task data.</p><button id="resetFrontier" type="button">Reset view</button><p class="note" id="frontierDetail">Drag to rotate. Click a point for its measured result.</p><ul class="frontier-list" id="frontierMatches" aria-label="Tasks highlighted by selected effort"></ul><p class="note"><span class="warn">Orange X</span> is audited difficulty, <span class="good">green Y</span> is mean supervisor effort, and blue Z is mean worker token cost. Each axis has a midpoint and end tick; drag to inspect the full 3D space.</p></div></div></section>
 
     <section><h2>All 27 task outcomes</h2><p class="note">Every row is a three-choice by three-attempt matrix. Supervisor selections and rationales are published without hidden prompts or model responses.</p><div class="table-wrap"><table><thead><tr><th>Category and task</th><th>Supervisor choices</th><th>Supervisor</th><th>Always none</th><th>Always high</th><th>Supervisor cost</th></tr></thead><tbody id="taskRows"></tbody></table></div><p class="note">Download the complete sanitized evidence: <a href="data/expanded-v1.json">expanded-v1.json</a>.</p></section>
 

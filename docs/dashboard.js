@@ -18,6 +18,7 @@ function renderFrontier(data, audit) {
   const tokenValues = supervisorTasks.map((task) => task.meanTokens);
   const minTokens = Math.min(...tokenValues);
   const maxTokens = Math.max(...tokenValues);
+  const formatTokenTick = (value) => value >= 1000 ? `${(value / 1000).toFixed(1)}k` : `${Math.round(value)} t`;
   const points = supervisorTasks.map((task) => ({
     ...task,
     difficulty: auditByTask.get(task.taskId)?.difficulty ?? 0,
@@ -44,28 +45,91 @@ function renderFrontier(data, audit) {
 
   function draw() {
     const effort = selectedEffort();
+    const origin = project(-0.5, -0.5, -0.5);
+    const xEnd = project(0.5, -0.5, -0.5);
+    const yEnd = project(-0.5, 0.5, -0.5);
+    const zEnd = project(-0.5, -0.5, 0.5);
+    const xyEnd = project(0.5, 0.5, -0.5);
+    const xzEnd = project(0.5, -0.5, 0.5);
+    const yzEnd = project(-0.5, 0.5, 0.5);
+    const drawPlane = (corners, color) => {
+      context.fillStyle = color;
+      context.beginPath();
+      context.moveTo(...corners[0]);
+      corners.slice(1).forEach((corner) => context.lineTo(...corner));
+      context.closePath();
+      context.fill();
+      context.strokeStyle = "#34496f";
+      context.lineWidth = 1;
+      context.setLineDash([5, 6]);
+      context.stroke();
+      context.setLineDash([]);
+    };
+    const label = (text, x, y, color = "#edf2ff") => {
+      context.save();
+      context.font = "600 12px system-ui";
+      const width = context.measureText(text).width;
+      context.fillStyle = "rgba(11, 16, 32, .9)";
+      context.fillRect(x - 5, y - 15, width + 10, 21);
+      context.fillStyle = color;
+      context.fillText(text, x, y);
+      context.restore();
+    };
+    const drawAxis = (end, color, title, middle, endTick) => {
+      const dx = end[0] - origin[0];
+      const dy = end[1] - origin[1];
+      const length = Math.hypot(dx, dy) || 1;
+      const nx = dx / length;
+      const ny = dy / length;
+      const px = -ny;
+      const py = nx;
+      context.strokeStyle = "rgba(11, 16, 32, .9)";
+      context.lineWidth = 7;
+      context.beginPath();
+      context.moveTo(...origin);
+      context.lineTo(...end);
+      context.stroke();
+      context.strokeStyle = color;
+      context.lineWidth = 3;
+      context.beginPath();
+      context.moveTo(...origin);
+      context.lineTo(...end);
+      context.stroke();
+      context.fillStyle = color;
+      context.beginPath();
+      context.moveTo(end[0], end[1]);
+      context.lineTo(end[0] - nx * 14 + px * 7, end[1] - ny * 14 + py * 7);
+      context.lineTo(end[0] - nx * 14 - px * 7, end[1] - ny * 14 - py * 7);
+      context.closePath();
+      context.fill();
+      [[0.5, middle], [1, endTick]].forEach(([position, tick]) => {
+        const x = origin[0] + dx * position;
+        const y = origin[1] + dy * position;
+        context.strokeStyle = color;
+        context.lineWidth = 2;
+        context.beginPath();
+        context.moveTo(x - px * 6, y - py * 6);
+        context.lineTo(x + px * 6, y + py * 6);
+        context.stroke();
+        label(tick, x + px * 10 + 3, y + py * 10 + 4, color);
+      });
+      label(title, end[0] + px * 17 - 5, end[1] + py * 17 + 4, color);
+    };
     context.fillStyle = "#17213a";
     context.fillRect(0, 0, canvas.width, canvas.height);
     context.strokeStyle = "#253755";
     context.lineWidth = 1;
     for (let step = 90; step < canvas.width; step += 90) { context.beginPath(); context.moveTo(step, 0); context.lineTo(step, canvas.height); context.stroke(); }
     for (let step = 80; step < canvas.height; step += 80) { context.beginPath(); context.moveTo(0, step); context.lineTo(canvas.width, step); context.stroke(); }
-    context.fillStyle = "#aab7d4";
-    context.font = "16px system-ui";
-    context.fillText("green: selected effort", 22, 30);
-    context.fillText("blue: other measured tasks", 22, 55);
-    context.fillText("audited difficulty →", 525, 455);
-    context.fillText("mean supervisor effort ↑", 20, 80);
-    context.fillText("z: worker tokens", 20, 105);
-    const origin = project(-0.5, -0.5, -0.5);
-    [[0.5, -0.5, -0.5], [-0.5, 0.5, -0.5], [-0.5, -0.5, 0.5]].forEach((axis) => {
-      const end = project(...axis);
-      context.strokeStyle = "#2d3858";
-      context.beginPath();
-      context.moveTo(...origin);
-      context.lineTo(...end);
-      context.stroke();
-    });
+    drawPlane([origin, xEnd, xyEnd, yEnd], "rgba(122, 167, 255, .055)");
+    drawPlane([origin, xEnd, xzEnd, zEnd], "rgba(101, 214, 161, .045)");
+    drawPlane([origin, yEnd, yzEnd, zEnd], "rgba(255, 184, 107, .035)");
+    label("Drag to rotate", 22, 29, "#aab7d4");
+    label("green = selected effort  ·  blue = other measured task", 22, 52, "#aab7d4");
+    drawAxis(xEnd, "#ffb86b", "X difficulty", "0.5", "hard");
+    drawAxis(yEnd, "#65d6a1", "Y supervisor effort", "medium", "max");
+    drawAxis(zEnd, "#7aa7ff", "Z worker tokens", formatTokenTick((minTokens + maxTokens) / 2), formatTokenTick(maxTokens));
+    label("easy / none / low", origin[0] - 9, origin[1] + 22, "#aab7d4");
     projectedPoints = points.map((task) => {
       const [x, y, depth] = project(task.difficulty - 0.5, task.effort - 0.5, task.tokenCost - 0.5);
       return { task, x, y, depth, matches: task.selectedEfforts.includes(effort) };
