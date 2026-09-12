@@ -7,7 +7,8 @@
     "test": "vitest run",
     "benchmark:plan": "node --import tsx src/live-runner.ts --plan",
     "benchmark:live": "node --import tsx src/live-runner.ts --live",
-    "benchmark:analyze": "node --import tsx src/analyze-results.ts"
+    "benchmark:analyze": "node --import tsx src/analyze-results.ts",
+    "benchmark:analyze:write": "node --import tsx src/analyze-results.ts --write"
   },
   "dependencies": {
     "microsandbox": "^0.6.18"
