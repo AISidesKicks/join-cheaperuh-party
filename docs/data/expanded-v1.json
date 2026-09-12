@@ -1,0 +1,3145 @@
+{
+  "version": 1,
+  "runId": "expanded-v1",
+  "protocol": {
+    "categories": 9,
+    "selectedTasks": 27,
+    "supervisorChoicesPerTask": 3,
+    "attemptsPerChoice": 3,
+    "workerAttemptsPerStrategy": 243,
+    "selectableEfforts": [
+      "none",
+      "minimal",
+      "low",
+      "medium",
+      "high",
+      "xhigh",
+      "max"
+    ]
+  },
+  "strategies": {
+    "supervisor": {
+      "ignoredDuplicateRecords": 330,
+      "workerTotals": {
+        "attempts": 243,
+        "tokens": 26099,
+        "cost": 0.019915810000000006
+      },
+      "supervisorTotals": {
+        "decisions": 81,
+        "tokens": 17494,
+        "cost": 0.0047087019999999995
+      },
+      "tasks": [
+        {
+          "taskId": "one-line-repair-01",
+          "category": "one-line-repair",
+          "brief": "A user needs one local condition corrected; there are no dependencies or hidden state.",
+          "successRate": 1,
+          "meanTokens": 37.44444444444444,
+          "totalTokens": 337,
+          "totalCost": 0.0001614,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 660,
+            "cost": 0.00010111499999999998,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Isolated one-line repair"
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Isolated one-line repair"
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Isolated one-line repair"
+              }
+            ]
+          },
+          "combinedCost": 0.00026251499999999995
+        },
+        {
+          "taskId": "one-line-repair-02",
+          "category": "one-line-repair",
+          "brief": "A user reports one loop-bound defect in an otherwise isolated snippet.",
+          "successRate": 1,
+          "meanTokens": 58,
+          "totalTokens": 522,
+          "totalCost": 0.000263625,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 651,
+            "cost": 0.00009909,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Isolated one-line repair"
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Isolated one-line repair"
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Isolated one-line repair"
+              }
+            ]
+          },
+          "combinedCost": 0.000362715
+        },
+        {
+          "taskId": "one-line-repair-03",
+          "category": "one-line-repair",
+          "brief": "A user needs a single syntax-level comparison repair.",
+          "successRate": 1,
+          "meanTokens": 29.555555555555557,
+          "totalTokens": 266,
+          "totalCost": 0.00011962999999999999,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 645,
+            "cost": 0.000122652,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Isolated one-line repair"
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Isolated one-line repair"
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Isolated one-line repair, no ambiguity"
+              }
+            ]
+          },
+          "combinedCost": 0.000242282
+        },
+        {
+          "taskId": "direct-extraction-01",
+          "category": "direct-extraction",
+          "brief": "A user asks for one literal value in a one-line record.",
+          "successRate": 1,
+          "meanTokens": 26.88888888888889,
+          "totalTokens": 242,
+          "totalCost": 0.00008295,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 656,
+            "cost": 0.000175784,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Literal extraction, no ambiguity"
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Literal extraction, no ambiguity stated"
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Literal extraction, no ambiguity stated"
+              }
+            ]
+          },
+          "combinedCost": 0.000258734
+        },
+        {
+          "taskId": "direct-extraction-02",
+          "category": "direct-extraction",
+          "brief": "A user asks to copy one explicit field from a short record.",
+          "successRate": 1,
+          "meanTokens": 25.77777777777778,
+          "totalTokens": 232,
+          "totalCost": 0.0000816,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 655,
+            "cost": 0.000161378,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Literal extraction, no ambiguity"
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Literal extraction, no ambiguity stated"
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Literal extraction, no ambiguity stated"
+              }
+            ]
+          },
+          "combinedCost": 0.000242978
+        },
+        {
+          "taskId": "direct-extraction-03",
+          "category": "direct-extraction",
+          "brief": "A user asks for one explicitly stated boolean, with no inference.",
+          "successRate": 1,
+          "meanTokens": 23.666666666666668,
+          "totalTokens": 213,
+          "totalCost": 0.00007515000000000001,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 654,
+            "cost": 0.00019323,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Literal extraction, no inference needed"
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Literal single boolean extraction"
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Literal extraction, no inference needed"
+              }
+            ]
+          },
+          "combinedCost": 0.00026838000000000003
+        },
+        {
+          "taskId": "formatting-01",
+          "category": "formatting",
+          "brief": "A user needs one deterministic string normalization.",
+          "successRate": 1,
+          "meanTokens": 35.55555555555556,
+          "totalTokens": 320,
+          "totalCost": 0.000129075,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 639,
+            "cost": 0.000098415,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Deterministic single-step formatting request"
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Deterministic single-step formatting request"
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Deterministic single-step formatting request"
+              }
+            ]
+          },
+          "combinedCost": 0.00022749
+        },
+        {
+          "taskId": "formatting-02",
+          "category": "formatting",
+          "brief": "A user requests a conventional short identifier format.",
+          "successRate": 1,
+          "meanTokens": 25.444444444444443,
+          "totalTokens": 229,
+          "totalCost": 0.00009375,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 642,
+            "cost": 0.000291375,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Literal deterministic formatting request"
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Literal deterministic formatting request"
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Literal deterministic formatting request"
+              }
+            ]
+          },
+          "combinedCost": 0.00038512500000000005
+        },
+        {
+          "taskId": "formatting-03",
+          "category": "formatting",
+          "brief": "A user needs a small deterministic formatting conversion.",
+          "successRate": 1,
+          "meanTokens": 27.666666666666668,
+          "totalTokens": 249,
+          "totalCost": 0.00010605,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 645,
+            "cost": 0.000125352,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Deterministic formatting, no ambiguity stated"
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Deterministic formatting, no ambiguity stated"
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Deterministic formatting, no ambiguity stated"
+              }
+            ]
+          },
+          "combinedCost": 0.000231402
+        },
+        {
+          "taskId": "bounded-arithmetic-01",
+          "category": "bounded-arithmetic",
+          "brief": "A user needs a short two-step calculation with stated rates.",
+          "successRate": 1,
+          "meanTokens": 116.33333333333333,
+          "totalTokens": 1047,
+          "totalCost": 0.00073425,
+          "selectedEfforts": [
+            "low",
+            "low",
+            "low"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 648,
+            "cost": 0.000098415,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "low",
+                "rationale": "Explicit two-step calculation stated"
+              },
+              {
+                "choice": 2,
+                "effort": "low",
+                "rationale": "Explicit two-step calculation stated"
+              },
+              {
+                "choice": 3,
+                "effort": "low",
+                "rationale": "Explicit two-step calculation stated"
+              }
+            ]
+          },
+          "combinedCost": 0.000832665
+        },
+        {
+          "taskId": "bounded-arithmetic-02",
+          "category": "bounded-arithmetic",
+          "brief": "A user needs a compact quotient-and-remainder calculation.",
+          "successRate": 0.8888888888888888,
+          "meanTokens": 224.33333333333334,
+          "totalTokens": 2019,
+          "totalCost": 0.0019209750000000001,
+          "selectedEfforts": [
+            "low",
+            "low",
+            "low"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 642,
+            "cost": 0.000113652,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "low",
+                "rationale": "Explicit calculation requested"
+              },
+              {
+                "choice": 2,
+                "effort": "low",
+                "rationale": "Explicit calculation requested"
+              },
+              {
+                "choice": 3,
+                "effort": "low",
+                "rationale": "Explicit calculation requested"
+              }
+            ]
+          },
+          "combinedCost": 0.0020346270000000002
+        },
+        {
+          "taskId": "bounded-arithmetic-03",
+          "category": "bounded-arithmetic",
+          "brief": "A user needs a sequenced financial calculation with rounding only at the end.",
+          "successRate": 0.6666666666666666,
+          "meanTokens": 263.44444444444446,
+          "totalTokens": 2371,
+          "totalCost": 0.0020541749999999997,
+          "selectedEfforts": [
+            "low",
+            "low",
+            "low"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 659,
+            "cost": 0.00030000000000000003,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "low",
+                "rationale": "Explicit sequenced calculation with rounding"
+              },
+              {
+                "choice": 2,
+                "effort": "low",
+                "rationale": "Explicit sequenced calculation with rounding rule"
+              },
+              {
+                "choice": 3,
+                "effort": "low",
+                "rationale": "Explicit sequenced calculation with rounding rule"
+              }
+            ]
+          },
+          "combinedCost": 0.0023541749999999996
+        },
+        {
+          "taskId": "boolean-logic-01",
+          "category": "boolean-logic",
+          "brief": "A user needs one explicit boolean rule evaluated.",
+          "successRate": 1,
+          "meanTokens": 61.77777777777778,
+          "totalTokens": 556,
+          "totalCost": 0.00025295,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "low"
+          ],
+          "zeroReasoningSelections": 0.6666666666666666,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 637,
+            "cost": 0.00009458999999999999,
+            "selections": [
+              {
+                "choice": 3,
+                "effort": "low",
+                "rationale": "Explicit single rule evaluation"
+              },
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Single explicit boolean rule evaluation"
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Single explicit boolean rule"
+              }
+            ]
+          },
+          "combinedCost": 0.00034753999999999997
+        },
+        {
+          "taskId": "boolean-logic-02",
+          "category": "boolean-logic",
+          "brief": "A user needs a small access predicate evaluated from given facts.",
+          "successRate": 0.8888888888888888,
+          "meanTokens": 31.77777777777778,
+          "totalTokens": 286,
+          "totalCost": 0.00008895,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 653,
+            "cost": 0.00014870999999999998,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Isolated predicate evaluation, no ambiguity"
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Isolated predicate evaluation, no ambiguity"
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Isolated predicate evaluation, no ambiguity"
+              }
+            ]
+          },
+          "combinedCost": 0.00023765999999999997
+        },
+        {
+          "taskId": "boolean-logic-03",
+          "category": "boolean-logic",
+          "brief": "A user needs a nested policy expression evaluated from explicit inputs.",
+          "successRate": 1,
+          "meanTokens": 134.22222222222223,
+          "totalTokens": 1208,
+          "totalCost": 0.0008244,
+          "selectedEfforts": [
+            "low",
+            "low",
+            "low"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 652,
+            "cost": 0.000125652,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "low",
+                "rationale": "Nested rule, short dependency chain"
+              },
+              {
+                "choice": 2,
+                "effort": "low",
+                "rationale": "Nested rule, short dependency chain"
+              },
+              {
+                "choice": 3,
+                "effort": "low",
+                "rationale": "Nested policy expression evaluation"
+              }
+            ]
+          },
+          "combinedCost": 0.000950052
+        },
+        {
+          "taskId": "ordering-constraints-01",
+          "category": "ordering-constraints",
+          "brief": "A user needs a short order derived from linked constraints.",
+          "successRate": 1,
+          "meanTokens": 115.88888888888889,
+          "totalTokens": 1043,
+          "totalCost": 0.000792675,
+          "selectedEfforts": [
+            "low",
+            "low",
+            "low"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 639,
+            "cost": 0.00022679999999999998,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "low",
+                "rationale": "Short dependency chain stated"
+              },
+              {
+                "choice": 2,
+                "effort": "low",
+                "rationale": "Short dependency chain stated"
+              },
+              {
+                "choice": 3,
+                "effort": "low",
+                "rationale": "short dependency chain"
+              }
+            ]
+          },
+          "combinedCost": 0.001019475
+        },
+        {
+          "taskId": "ordering-constraints-02",
+          "category": "ordering-constraints",
+          "brief": "A user needs one conclusion from a short transitive ordering.",
+          "successRate": 1,
+          "meanTokens": 95.88888888888889,
+          "totalTokens": 863,
+          "totalCost": 0.00055095,
+          "selectedEfforts": [
+            "low",
+            "low",
+            "low"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 642,
+            "cost": 0.000154368,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "low",
+                "rationale": "Short transitive dependency chain"
+              },
+              {
+                "choice": 2,
+                "effort": "low",
+                "rationale": "Short transitive dependency chain"
+              },
+              {
+                "choice": 3,
+                "effort": "low",
+                "rationale": "Short transitive dependency chain"
+              }
+            ]
+          },
+          "combinedCost": 0.000705318
+        },
+        {
+          "taskId": "ordering-constraints-03",
+          "category": "ordering-constraints",
+          "brief": "A user needs a valid execution order from a six-item dependency graph.",
+          "successRate": 0.8888888888888888,
+          "meanTokens": 219.66666666666666,
+          "totalTokens": 1977,
+          "totalCost": 0.001719075,
+          "selectedEfforts": [
+            "medium",
+            "medium",
+            "medium"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 653,
+            "cost": 0.00023549999999999998,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "medium",
+                "rationale": "Six-item dependency graph ordering"
+              },
+              {
+                "choice": 2,
+                "effort": "medium",
+                "rationale": "Six-item dependency graph ordering"
+              },
+              {
+                "choice": 3,
+                "effort": "medium",
+                "rationale": "Six-item dependency graph ordering"
+              }
+            ]
+          },
+          "combinedCost": 0.001954575
+        },
+        {
+          "taskId": "stateful-rules-01",
+          "category": "stateful-rules",
+          "brief": "A user needs the result of three explicit state updates.",
+          "successRate": 1,
+          "meanTokens": 91,
+          "totalTokens": 819,
+          "totalCost": 0.00046837499999999993,
+          "selectedEfforts": [
+            "low",
+            "low",
+            "low"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 642,
+            "cost": 0.000226815,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "low",
+                "rationale": "Short dependency chain stated"
+              },
+              {
+                "choice": 2,
+                "effort": "low",
+                "rationale": "Short dependency chain of updates"
+              },
+              {
+                "choice": 3,
+                "effort": "low",
+                "rationale": "Short dependency chain stated"
+              }
+            ]
+          },
+          "combinedCost": 0.0006951899999999999
+        },
+        {
+          "taskId": "stateful-rules-02",
+          "category": "stateful-rules",
+          "brief": "A user needs the result of a small ordered queue mutation.",
+          "successRate": 1,
+          "meanTokens": 121.55555555555556,
+          "totalTokens": 1094,
+          "totalCost": 0.0008268,
+          "selectedEfforts": [
+            "low",
+            "low",
+            "low"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 644,
+            "cost": 0.0002301,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "low",
+                "rationale": "Short ordered mutation chain"
+              },
+              {
+                "choice": 2,
+                "effort": "low",
+                "rationale": "Short dependency chain mutation"
+              },
+              {
+                "choice": 3,
+                "effort": "low",
+                "rationale": "short ordered state mutation"
+              }
+            ]
+          },
+          "combinedCost": 0.0010569
+        },
+        {
+          "taskId": "stateful-rules-03",
+          "category": "stateful-rules",
+          "brief": "A user needs a sequential state simulation with percentage updates.",
+          "successRate": 1,
+          "meanTokens": 157,
+          "totalTokens": 1413,
+          "totalCost": 0.0010835999999999999,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 640,
+            "cost": 0.00022799999999999999,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Sequential state simulation stated"
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Sequential state simulation stated"
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Sequential state simulation stated"
+              }
+            ]
+          },
+          "combinedCost": 0.0013115999999999998
+        },
+        {
+          "taskId": "debug-diagnosis-01",
+          "category": "debug-diagnosis",
+          "brief": "A user reports a cross-locale cache symptom with one stated cause.",
+          "successRate": 1,
+          "meanTokens": 149,
+          "totalTokens": 1341,
+          "totalCost": 0.001034955,
+          "selectedEfforts": [
+            "low",
+            "high",
+            "low"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 656,
+            "cost": 0.0002364,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "low",
+                "rationale": "Single stated cause diagnosis"
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Stated diagnosis and state changes"
+              },
+              {
+                "choice": 3,
+                "effort": "low",
+                "rationale": "Single stated cause diagnosis"
+              }
+            ]
+          },
+          "combinedCost": 0.001271355
+        },
+        {
+          "taskId": "debug-diagnosis-02",
+          "category": "debug-diagnosis",
+          "brief": "A user reports duplicate persistence from overlapping UI events.",
+          "successRate": 1,
+          "meanTokens": 189.66666666666666,
+          "totalTokens": 1707,
+          "totalCost": 0.0015067499999999998,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 642,
+            "cost": 0.000206355,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Diagnosis of event race condition"
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Diagnosis of overlapping event state"
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Diagnosis of event race condition"
+              }
+            ]
+          },
+          "combinedCost": 0.001713105
+        },
+        {
+          "taskId": "debug-diagnosis-03",
+          "category": "debug-diagnosis",
+          "brief": "A user reports a UI identity bug that appears only after reordering data.",
+          "successRate": 0.5555555555555556,
+          "meanTokens": 242.66666666666666,
+          "totalTokens": 2184,
+          "totalCost": 0.00195094,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 661,
+            "cost": 0.00014976,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Diagnosis with state-dependent reordering bug"
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Diagnosis with state-dependent reordering"
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Diagnosis with state-dependent reordering bug"
+              }
+            ]
+          },
+          "combinedCost": 0.0021007
+        },
+        {
+          "taskId": "test-design-01",
+          "category": "test-design",
+          "brief": "A user needs one boundary test for an inclusive range contract.",
+          "successRate": 0.5555555555555556,
+          "meanTokens": 110.77777777777777,
+          "totalTokens": 997,
+          "totalCost": 0.0008631000000000001,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "minimal"
+          ],
+          "zeroReasoningSelections": 0.6666666666666666,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 645,
+            "cost": 0.00014091,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Single isolated boundary test"
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Single isolated boundary test"
+              },
+              {
+                "choice": 3,
+                "effort": "minimal",
+                "rationale": "Single isolated boundary test case"
+              }
+            ]
+          },
+          "combinedCost": 0.00100401
+        },
+        {
+          "taskId": "test-design-02",
+          "category": "test-design",
+          "brief": "A user needs the stated threshold boundary.",
+          "successRate": 1,
+          "meanTokens": 32.55555555555556,
+          "totalTokens": 293,
+          "totalCost": 0.00010259999999999999,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 644,
+            "cost": 0.0002301,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Single threshold boundary lookup"
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Single stated threshold boundary lookup"
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Single threshold boundary lookup"
+              }
+            ]
+          },
+          "combinedCost": 0.0003327
+        },
+        {
+          "taskId": "test-design-03",
+          "category": "test-design",
+          "brief": "A user needs a boundary test from a small input-domain contract.",
+          "successRate": 0.2222222222222222,
+          "meanTokens": 252.33333333333334,
+          "totalTokens": 2271,
+          "totalCost": 0.0020270600000000002,
+          "selectedEfforts": [
+            "low",
+            "low",
+            "low"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 648,
+            "cost": 0.000194184,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "low",
+                "rationale": "Boundary test design requires analysis"
+              },
+              {
+                "choice": 2,
+                "effort": "low",
+                "rationale": "Boundary test design needed"
+              },
+              {
+                "choice": 3,
+                "effort": "low",
+                "rationale": "Boundary test design needed"
+              }
+            ]
+          },
+          "combinedCost": 0.0022212440000000003
+        }
+      ]
+    },
+    "none": {
+      "ignoredDuplicateRecords": 360,
+      "workerTotals": {
+        "attempts": 243,
+        "tokens": 9574,
+        "cost": 0.003727174999999997
+      },
+      "supervisorTotals": {
+        "decisions": 81,
+        "tokens": 0,
+        "cost": 0
+      },
+      "tasks": [
+        {
+          "taskId": "one-line-repair-01",
+          "category": "one-line-repair",
+          "brief": "A user needs one local condition corrected; there are no dependencies or hidden state.",
+          "successRate": 1,
+          "meanTokens": 38.333333333333336,
+          "totalTokens": 345,
+          "totalCost": 0.000177825,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.000177825
+        },
+        {
+          "taskId": "one-line-repair-02",
+          "category": "one-line-repair",
+          "brief": "A user reports one loop-bound defect in an otherwise isolated snippet.",
+          "successRate": 1,
+          "meanTokens": 57.77777777777778,
+          "totalTokens": 520,
+          "totalCost": 0.00028297500000000003,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.00028297500000000003
+        },
+        {
+          "taskId": "one-line-repair-03",
+          "category": "one-line-repair",
+          "brief": "A user needs a single syntax-level comparison repair.",
+          "successRate": 1,
+          "meanTokens": 29.555555555555557,
+          "totalTokens": 266,
+          "totalCost": 0.00011962999999999999,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.00011962999999999999
+        },
+        {
+          "taskId": "direct-extraction-01",
+          "category": "direct-extraction",
+          "brief": "A user asks for one literal value in a one-line record.",
+          "successRate": 1,
+          "meanTokens": 26.77777777777778,
+          "totalTokens": 241,
+          "totalCost": 0.00008669999999999999,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.00008669999999999999
+        },
+        {
+          "taskId": "direct-extraction-02",
+          "category": "direct-extraction",
+          "brief": "A user asks to copy one explicit field from a short record.",
+          "successRate": 1,
+          "meanTokens": 25.666666666666668,
+          "totalTokens": 231,
+          "totalCost": 0.0000798,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.0000798
+        },
+        {
+          "taskId": "direct-extraction-03",
+          "category": "direct-extraction",
+          "brief": "A user asks for one explicitly stated boolean, with no inference.",
+          "successRate": 1,
+          "meanTokens": 23.555555555555557,
+          "totalTokens": 212,
+          "totalCost": 0.00007620000000000001,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.00007620000000000001
+        },
+        {
+          "taskId": "formatting-01",
+          "category": "formatting",
+          "brief": "A user needs one deterministic string normalization.",
+          "successRate": 1,
+          "meanTokens": 35.44444444444444,
+          "totalTokens": 319,
+          "totalCost": 0.00012405,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.00012405
+        },
+        {
+          "taskId": "formatting-02",
+          "category": "formatting",
+          "brief": "A user requests a conventional short identifier format.",
+          "successRate": 1,
+          "meanTokens": 25.77777777777778,
+          "totalTokens": 232,
+          "totalCost": 0.00010020000000000002,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.00010020000000000002
+        },
+        {
+          "taskId": "formatting-03",
+          "category": "formatting",
+          "brief": "A user needs a small deterministic formatting conversion.",
+          "successRate": 1,
+          "meanTokens": 27.555555555555557,
+          "totalTokens": 248,
+          "totalCost": 0.000101625,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.000101625
+        },
+        {
+          "taskId": "bounded-arithmetic-01",
+          "category": "bounded-arithmetic",
+          "brief": "A user needs a short two-step calculation with stated rates.",
+          "successRate": 1,
+          "meanTokens": 39.666666666666664,
+          "totalTokens": 357,
+          "totalCost": 0.0001209,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.0001209
+        },
+        {
+          "taskId": "bounded-arithmetic-02",
+          "category": "bounded-arithmetic",
+          "brief": "A user needs a compact quotient-and-remainder calculation.",
+          "successRate": 1,
+          "meanTokens": 38,
+          "totalTokens": 342,
+          "totalCost": 0.000124625,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.000124625
+        },
+        {
+          "taskId": "bounded-arithmetic-03",
+          "category": "bounded-arithmetic",
+          "brief": "A user needs a sequenced financial calculation with rounding only at the end.",
+          "successRate": 0,
+          "meanTokens": 60.666666666666664,
+          "totalTokens": 546,
+          "totalCost": 0.00018730000000000003,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.00018730000000000003
+        },
+        {
+          "taskId": "boolean-logic-01",
+          "category": "boolean-logic",
+          "brief": "A user needs one explicit boolean rule evaluated.",
+          "successRate": 1,
+          "meanTokens": 39.77777777777778,
+          "totalTokens": 358,
+          "totalCost": 0.00011489999999999999,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.00011489999999999999
+        },
+        {
+          "taskId": "boolean-logic-02",
+          "category": "boolean-logic",
+          "brief": "A user needs a small access predicate evaluated from given facts.",
+          "successRate": 1,
+          "meanTokens": 31.77777777777778,
+          "totalTokens": 286,
+          "totalCost": 0.00009449999999999999,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.00009449999999999999
+        },
+        {
+          "taskId": "boolean-logic-03",
+          "category": "boolean-logic",
+          "brief": "A user needs a nested policy expression evaluated from explicit inputs.",
+          "successRate": 1,
+          "meanTokens": 47.888888888888886,
+          "totalTokens": 431,
+          "totalCost": 0.000130205,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.000130205
+        },
+        {
+          "taskId": "ordering-constraints-01",
+          "category": "ordering-constraints",
+          "brief": "A user needs a short order derived from linked constraints.",
+          "successRate": 1,
+          "meanTokens": 40,
+          "totalTokens": 360,
+          "totalCost": 0.00013887499999999997,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.00013887499999999997
+        },
+        {
+          "taskId": "ordering-constraints-02",
+          "category": "ordering-constraints",
+          "brief": "A user needs one conclusion from a short transitive ordering.",
+          "successRate": 1,
+          "meanTokens": 34.55555555555556,
+          "totalTokens": 311,
+          "totalCost": 0.00010739999999999998,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.00010739999999999998
+        },
+        {
+          "taskId": "ordering-constraints-03",
+          "category": "ordering-constraints",
+          "brief": "A user needs a valid execution order from a six-item dependency graph.",
+          "successRate": 1,
+          "meanTokens": 60.666666666666664,
+          "totalTokens": 546,
+          "totalCost": 0.000251025,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.000251025
+        },
+        {
+          "taskId": "stateful-rules-01",
+          "category": "stateful-rules",
+          "brief": "A user needs the result of three explicit state updates.",
+          "successRate": 1,
+          "meanTokens": 35.888888888888886,
+          "totalTokens": 323,
+          "totalCost": 0.00010145,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.00010145
+        },
+        {
+          "taskId": "stateful-rules-02",
+          "category": "stateful-rules",
+          "brief": "A user needs the result of a small ordered queue mutation.",
+          "successRate": 1,
+          "meanTokens": 36.888888888888886,
+          "totalTokens": 332,
+          "totalCost": 0.00011520999999999998,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.00011520999999999998
+        },
+        {
+          "taskId": "stateful-rules-03",
+          "category": "stateful-rules",
+          "brief": "A user needs a sequential state simulation with percentage updates.",
+          "successRate": 0,
+          "meanTokens": 50,
+          "totalTokens": 450,
+          "totalCost": 0.00015345000000000002,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.00015345000000000002
+        },
+        {
+          "taskId": "debug-diagnosis-01",
+          "category": "debug-diagnosis",
+          "brief": "A user reports a cross-locale cache symptom with one stated cause.",
+          "successRate": 1,
+          "meanTokens": 40.77777777777778,
+          "totalTokens": 367,
+          "totalCost": 0.0001571,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.0001571
+        },
+        {
+          "taskId": "debug-diagnosis-02",
+          "category": "debug-diagnosis",
+          "brief": "A user reports duplicate persistence from overlapping UI events.",
+          "successRate": 0.7777777777777778,
+          "meanTokens": 39.666666666666664,
+          "totalTokens": 357,
+          "totalCost": 0.00016262,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.00016262
+        },
+        {
+          "taskId": "debug-diagnosis-03",
+          "category": "debug-diagnosis",
+          "brief": "A user reports a UI identity bug that appears only after reordering data.",
+          "successRate": 1,
+          "meanTokens": 65.77777777777777,
+          "totalTokens": 592,
+          "totalCost": 0.0002934,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.0002934
+        },
+        {
+          "taskId": "test-design-01",
+          "category": "test-design",
+          "brief": "A user needs one boundary test for an inclusive range contract.",
+          "successRate": 0.8888888888888888,
+          "meanTokens": 35.55555555555556,
+          "totalTokens": 320,
+          "totalCost": 0.00011348,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.00011348
+        },
+        {
+          "taskId": "test-design-02",
+          "category": "test-design",
+          "brief": "A user needs the stated threshold boundary.",
+          "successRate": 0.5555555555555556,
+          "meanTokens": 33.111111111111114,
+          "totalTokens": 298,
+          "totalCost": 0.00009772999999999999,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.00009772999999999999
+        },
+        {
+          "taskId": "test-design-03",
+          "category": "test-design",
+          "brief": "A user needs a boundary test from a small input-domain contract.",
+          "successRate": 1,
+          "meanTokens": 42.666666666666664,
+          "totalTokens": 384,
+          "totalCost": 0.000114,
+          "selectedEfforts": [
+            "none",
+            "none",
+            "none"
+          ],
+          "zeroReasoningSelections": 1,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "none",
+                "rationale": "Always-none baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.000114
+        }
+      ]
+    },
+    "high": {
+      "ignoredDuplicateRecords": 288,
+      "workerTotals": {
+        "attempts": 243,
+        "tokens": 37180,
+        "cost": 0.030360599999999995
+      },
+      "supervisorTotals": {
+        "decisions": 81,
+        "tokens": 0,
+        "cost": 0
+      },
+      "tasks": [
+        {
+          "taskId": "one-line-repair-01",
+          "category": "one-line-repair",
+          "brief": "A user needs one local condition corrected; there are no dependencies or hidden state.",
+          "successRate": 1,
+          "meanTokens": 160.55555555555554,
+          "totalTokens": 1445,
+          "totalCost": 0.0013200750000000004,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.0013200750000000004
+        },
+        {
+          "taskId": "one-line-repair-02",
+          "category": "one-line-repair",
+          "brief": "A user reports one loop-bound defect in an otherwise isolated snippet.",
+          "successRate": 1,
+          "meanTokens": 150.55555555555554,
+          "totalTokens": 1355,
+          "totalCost": 0.001084575,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.001084575
+        },
+        {
+          "taskId": "one-line-repair-03",
+          "category": "one-line-repair",
+          "brief": "A user needs a single syntax-level comparison repair.",
+          "successRate": 1,
+          "meanTokens": 107.55555555555556,
+          "totalTokens": 968,
+          "totalCost": 0.000770475,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.000770475
+        },
+        {
+          "taskId": "direct-extraction-01",
+          "category": "direct-extraction",
+          "brief": "A user asks for one literal value in a one-line record.",
+          "successRate": 1,
+          "meanTokens": 83.11111111111111,
+          "totalTokens": 748,
+          "totalCost": 0.0005121,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.0005121
+        },
+        {
+          "taskId": "direct-extraction-02",
+          "category": "direct-extraction",
+          "brief": "A user asks to copy one explicit field from a short record.",
+          "successRate": 1,
+          "meanTokens": 108.77777777777777,
+          "totalTokens": 979,
+          "totalCost": 0.0007689750000000001,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.0007689750000000001
+        },
+        {
+          "taskId": "direct-extraction-03",
+          "category": "direct-extraction",
+          "brief": "A user asks for one explicitly stated boolean, with no inference.",
+          "successRate": 1,
+          "meanTokens": 110.55555555555556,
+          "totalTokens": 995,
+          "totalCost": 0.0007887899999999999,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.0007887899999999999
+        },
+        {
+          "taskId": "formatting-01",
+          "category": "formatting",
+          "brief": "A user needs one deterministic string normalization.",
+          "successRate": 1,
+          "meanTokens": 120.66666666666667,
+          "totalTokens": 1086,
+          "totalCost": 0.0007379399999999999,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.0007379399999999999
+        },
+        {
+          "taskId": "formatting-02",
+          "category": "formatting",
+          "brief": "A user requests a conventional short identifier format.",
+          "successRate": 1,
+          "meanTokens": 83,
+          "totalTokens": 747,
+          "totalCost": 0.00038364,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.00038364
+        },
+        {
+          "taskId": "formatting-03",
+          "category": "formatting",
+          "brief": "A user needs a small deterministic formatting conversion.",
+          "successRate": 1,
+          "meanTokens": 94.66666666666667,
+          "totalTokens": 852,
+          "totalCost": 0.0005748750000000001,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.0005748750000000001
+        },
+        {
+          "taskId": "bounded-arithmetic-01",
+          "category": "bounded-arithmetic",
+          "brief": "A user needs a short two-step calculation with stated rates.",
+          "successRate": 1,
+          "meanTokens": 126.11111111111111,
+          "totalTokens": 1135,
+          "totalCost": 0.0006523999999999999,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.0006523999999999999
+        },
+        {
+          "taskId": "bounded-arithmetic-02",
+          "category": "bounded-arithmetic",
+          "brief": "A user needs a compact quotient-and-remainder calculation.",
+          "successRate": 0.8888888888888888,
+          "meanTokens": 196.55555555555554,
+          "totalTokens": 1769,
+          "totalCost": 0.00138426,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.00138426
+        },
+        {
+          "taskId": "bounded-arithmetic-03",
+          "category": "bounded-arithmetic",
+          "brief": "A user needs a sequenced financial calculation with rounding only at the end.",
+          "successRate": 0.3333333333333333,
+          "meanTokens": 275.55555555555554,
+          "totalTokens": 2480,
+          "totalCost": 0.00201045,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.00201045
+        },
+        {
+          "taskId": "boolean-logic-01",
+          "category": "boolean-logic",
+          "brief": "A user needs one explicit boolean rule evaluated.",
+          "successRate": 1,
+          "meanTokens": 108.66666666666667,
+          "totalTokens": 978,
+          "totalCost": 0.0005452400000000001,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.0005452400000000001
+        },
+        {
+          "taskId": "boolean-logic-02",
+          "category": "boolean-logic",
+          "brief": "A user needs a small access predicate evaluated from given facts.",
+          "successRate": 1,
+          "meanTokens": 94,
+          "totalTokens": 846,
+          "totalCost": 0.0005942250000000001,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.0005942250000000001
+        },
+        {
+          "taskId": "boolean-logic-03",
+          "category": "boolean-logic",
+          "brief": "A user needs a nested policy expression evaluated from explicit inputs.",
+          "successRate": 1,
+          "meanTokens": 140.66666666666666,
+          "totalTokens": 1266,
+          "totalCost": 0.00086856,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.00086856
+        },
+        {
+          "taskId": "ordering-constraints-01",
+          "category": "ordering-constraints",
+          "brief": "A user needs a short order derived from linked constraints.",
+          "successRate": 1,
+          "meanTokens": 115.66666666666667,
+          "totalTokens": 1041,
+          "totalCost": 0.0006897199999999999,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.0006897199999999999
+        },
+        {
+          "taskId": "ordering-constraints-02",
+          "category": "ordering-constraints",
+          "brief": "A user needs one conclusion from a short transitive ordering.",
+          "successRate": 1,
+          "meanTokens": 102.77777777777777,
+          "totalTokens": 925,
+          "totalCost": 0.00062265,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.00062265
+        },
+        {
+          "taskId": "ordering-constraints-03",
+          "category": "ordering-constraints",
+          "brief": "A user needs a valid execution order from a six-item dependency graph.",
+          "successRate": 0.7777777777777778,
+          "meanTokens": 224.33333333333334,
+          "totalTokens": 2019,
+          "totalCost": 0.001809975,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.001809975
+        },
+        {
+          "taskId": "stateful-rules-01",
+          "category": "stateful-rules",
+          "brief": "A user needs the result of three explicit state updates.",
+          "successRate": 1,
+          "meanTokens": 92.77777777777777,
+          "totalTokens": 835,
+          "totalCost": 0.000528975,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.000528975
+        },
+        {
+          "taskId": "stateful-rules-02",
+          "category": "stateful-rules",
+          "brief": "A user needs the result of a small ordered queue mutation.",
+          "successRate": 1,
+          "meanTokens": 114.33333333333333,
+          "totalTokens": 1029,
+          "totalCost": 0.0007062,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.0007062
+        },
+        {
+          "taskId": "stateful-rules-03",
+          "category": "stateful-rules",
+          "brief": "A user needs a sequential state simulation with percentage updates.",
+          "successRate": 1,
+          "meanTokens": 157.77777777777777,
+          "totalTokens": 1420,
+          "totalCost": 0.001092075,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.001092075
+        },
+        {
+          "taskId": "debug-diagnosis-01",
+          "category": "debug-diagnosis",
+          "brief": "A user reports a cross-locale cache symptom with one stated cause.",
+          "successRate": 0.8888888888888888,
+          "meanTokens": 153.44444444444446,
+          "totalTokens": 1381,
+          "totalCost": 0.001105575,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.001105575
+        },
+        {
+          "taskId": "debug-diagnosis-02",
+          "category": "debug-diagnosis",
+          "brief": "A user reports duplicate persistence from overlapping UI events.",
+          "successRate": 1,
+          "meanTokens": 202.55555555555554,
+          "totalTokens": 1823,
+          "totalCost": 0.00176295,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.00176295
+        },
+        {
+          "taskId": "debug-diagnosis-03",
+          "category": "debug-diagnosis",
+          "brief": "A user reports a UI identity bug that appears only after reordering data.",
+          "successRate": 0.8888888888888888,
+          "meanTokens": 235.66666666666666,
+          "totalTokens": 2121,
+          "totalCost": 0.0020059500000000003,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.0020059500000000003
+        },
+        {
+          "taskId": "test-design-01",
+          "category": "test-design",
+          "brief": "A user needs one boundary test for an inclusive range contract.",
+          "successRate": 0,
+          "meanTokens": 256.44444444444446,
+          "totalTokens": 2308,
+          "totalCost": 0.0024276750000000002,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.0024276750000000002
+        },
+        {
+          "taskId": "test-design-02",
+          "category": "test-design",
+          "brief": "A user needs the stated threshold boundary.",
+          "successRate": 0.3333333333333333,
+          "meanTokens": 247.33333333333334,
+          "totalTokens": 2226,
+          "totalCost": 0.0023364,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.0023364
+        },
+        {
+          "taskId": "test-design-03",
+          "category": "test-design",
+          "brief": "A user needs a boundary test from a small input-domain contract.",
+          "successRate": 0,
+          "meanTokens": 267,
+          "totalTokens": 2403,
+          "totalCost": 0.002275875,
+          "selectedEfforts": [
+            "high",
+            "high",
+            "high"
+          ],
+          "zeroReasoningSelections": 0,
+          "supervisor": {
+            "decisions": 3,
+            "tokens": 0,
+            "cost": 0,
+            "selections": [
+              {
+                "choice": 1,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 2,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              },
+              {
+                "choice": 3,
+                "effort": "high",
+                "rationale": "Always-high baseline."
+              }
+            ]
+          },
+          "combinedCost": 0.002275875
+        }
+      ]
+    }
+  }
+}
