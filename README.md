@@ -2,6 +2,8 @@
 
 Join cheaperuh (čipera) PARTY tests a cost-conscious supervisor: can it look at a vague task description and choose the least expensive reasoning effort likely to succeed?
 
+In Czech, **čipera** means lively, brisk, nimble, or energetic, often said affectionately about an active child. Here it is affectionate sarcasm: an AI can be far too eager to think, orchestrate, and spend credit on work that should be simple.
+
 ![Models are not inherently lazy - reasoning levels and AI harness multi-agent orchestration](docs/assets/images/6reasoning-levels.jpeg)
 
 ## The idea
