@@ -1,19 +1,14 @@
 # Stage 3: implementation and validation
 
-`src/experiment.ts` defines 81 original tasks and the nine numeric reasoning settings. `src/live-runner.ts` plans a 729-cell run and records a bounded direct-DeepSeek numeric calibration. `src/router.ts` supplies a transparent heuristic router. `src/metrics.ts` calculates both requested metric variants and router scores. `src/cli.ts` prints a replay report.
-
-Run with the project NVM Node 22 runtime:
+`src/experiment.ts` defines the 33-candidate bank, selected nine-task demo, allowed efforts, and answer verifier. `src/live-runner.ts` calls OpenRouter for a vague-brief supervisor decision, then three worker attempts. `src/analyze-results.ts` summarizes a complete 3 x 3 task matrix.
 
 ```bash
-. /home/ruda/.nvm/nvm.sh && nvm use 22
+. /home/ruda/.nvm/nvm.sh
+nvm use 22
 npm test
 npm run benchmark:plan
 ```
 
-Vitest covers formulas, matrix validation, and the 9 x 9 task construction. Microsandbox is retained as a project dependency for the next phase, when executable tasks need isolated verifiers. It is deliberately not started for deterministic text prompts.
+The plan is local. A live limit unit is one supervisor decision plus three worker attempts. Start with `npm run benchmark:live -- --limit=1`; complete the demo with `--limit=27`; then run `npm run benchmark:analyze`.
 
-To advance beyond fixture results: run a fixed model and prompt at all nine levels only during calibration, replace illustrative attempts with measured records, and ask the assessor for a single level at evaluation time.
-
-## Provider constraint discovered in validation
-
-The native V4.1 model supports numeric `reasoning_effort` values from 1 to 100, but OpenRouter's current public chat-completions validation accepts only named gateway effort values. Therefore an OpenRouter API key cannot truthfully produce nine distinct numeric efforts. The runner fails closed on OpenRouter and requires `--provider=deepseek`, `DEEPSEEK_API_KEY`, and an explicit `DEEPSEEK_MODEL` for the numeric experiment. This avoids silently collapsing the nine planned settings into fewer gateway aliases.
+The `.env` key is never printed or committed. OpenRouter accepts named efforts only, so the implementation deliberately uses its seven supported choices instead of pretending the gateway accepts numeric 1-100 values.

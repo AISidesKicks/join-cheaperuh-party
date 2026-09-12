@@ -1,15 +1,7 @@
-# Stage 1: PoC scope
+# Stage 1: supervisor-routing PoC scope
 
-## Goal
+The PoC evaluates a cost-conscious supervisor, not a fixed level router. The supervisor receives only a vague task brief and may choose any OpenRouter-supported effort, including `none`. It does not see the detailed worker prompt, expected answer, or calibration outcomes.
 
-Demonstrate a logical reasoning router: given one task, suggest one reasoning level before invoking a model. It does not route between models. Calibration makes nine live calls per task; evaluation makes one.
+The task bank has 33 original deterministic candidates across nine categories. The budget demo selects nine tasks, one per category.
 
-The 9 x 9 matrix is calibration evidence. There are nine categories with nine tasks each, evaluated at nine reasoning settings from disabled thinking through 100. A router recommendation is replayed against that curve to estimate its expected accuracy and cost.
-
-## Limits
-
-The checked-in reference values are illustrative fixture data, not a claim about a real model. A real evaluation replaces the fixture with measured, pinned model runs. The PoC intentionally does not need credentials, downloads, or a live sandbox because it evaluates routing logic only.
-
-## Source inspiration
-
-Task shapes are original distillations inspired by broad reasoning benchmarks, not copied questions: [MMLU-Pro](https://arxiv.org/abs/2406.01574), [LiveCodeBench](https://github.com/LiveCodeBench/LiveCodeBench), and [SWE-bench](https://arxiv.org/abs/2310.06770).
+Each selected task receives three independent supervisor choices. The worker then makes three attempts at each chosen effort. This is a 3 x 3 task matrix, or nine worker attempts per task. The full demo uses 81 worker calls and 27 supervisor calls.
