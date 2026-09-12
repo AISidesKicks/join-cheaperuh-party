@@ -18,10 +18,9 @@ const model = process.env.OPENROUTER_MODEL ?? "deepseek/deepseek-v4.1-flash";
 if (!apiKey) throw new Error("OPENROUTER_API_KEY is required in .env");
 const outputPath = "results/openrouter-supervisor-demo.jsonl";
 await mkdir("results", { recursive: true });
-const completed = new Set((await readFile(outputPath, "utf8").catch(() => "")).split("\n").filter(Boolean).map((line) => {
-  const record = JSON.parse(line) as { taskId: string; choice: number };
-  return `${record.taskId}:${record.choice}`;
-}));
+const existingRecords = (await readFile(outputPath, "utf8").catch(() => "")).split("\n").filter(Boolean).map((line) => JSON.parse(line) as { taskId: string; choice: number; attempt: number; effort: ReasoningEffort });
+const recordsFor = (taskId: string, choice: number) => existingRecords.filter((record) => record.taskId === taskId && record.choice === choice);
+const completed = new Set(groups.filter(({ task, choice }) => recordsFor(task.id, choice).length === ATTEMPTS_PER_CHOICE).map(({ task, choice }) => `${task.id}:${choice}`));
 
 async function complete(messages: Array<{ role: "system" | "user"; content: string }>, effort: ReasoningEffort) {
   const response = await fetch("https://openrouter.ai/api/v1/chat/completions", { method: "POST", headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json", "X-Title": "Cheaperuh reasoning router" }, body: JSON.stringify({ model, messages, temperature: 0, max_tokens: 200, reasoning: reasoningRequest(effort) }) });
@@ -38,10 +37,13 @@ async function chooseEffort(task: BenchmarkTask): Promise<ReasoningEffort> {
 }
 
 for (const { task, choice } of groups.filter(({ task, choice }) => !completed.has(`${task.id}:${choice}`)).slice(0, limit)) {
-  const effort = await chooseEffort(task);
-  for (let attempt = 1; attempt <= ATTEMPTS_PER_CHOICE; attempt += 1) {
+  const previous = recordsFor(task.id, choice);
+  const effort = previous[0]?.effort ?? await chooseEffort(task);
+  const pendingAttempts = Array.from({ length: ATTEMPTS_PER_CHOICE }, (_, index) => index + 1).filter((attempt) => !previous.some((record) => record.attempt === attempt));
+  const completedAttempts = await Promise.all(pendingAttempts.map(async (attempt) => {
     const result = await complete([{ role: "user", content: task.prompt }], effort);
-    await appendFile(outputPath, `${JSON.stringify({ taskId: task.id, category: task.category, choice, attempt, effort, success: isCorrect(task, result.content), usage: result.usage, model, response: result.content, startedAt: new Date().toISOString() })}\n`);
-  }
+    return { taskId: task.id, category: task.category, choice, attempt, effort, success: isCorrect(task, result.content), usage: result.usage, model, response: result.content, startedAt: new Date().toISOString() };
+  }));
+  for (const result of completedAttempts) await appendFile(outputPath, `${JSON.stringify(result)}\n`);
   console.log(`${task.id} choice=${choice} effort=${effort} attempts=${ATTEMPTS_PER_CHOICE}`);
 }
