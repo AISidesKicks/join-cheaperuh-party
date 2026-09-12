@@ -27,10 +27,22 @@ const recordsFor = (taskId: string, choice: number) => existingRecords.filter((r
 const completed = new Set(groups.filter(({ task, choice }) => recordsFor(task.id, choice).length >= ATTEMPTS_PER_CHOICE).map(({ task, choice }) => `${task.id}:${choice}`));
 
 async function complete(messages: Array<{ role: "system" | "user"; content: string }>, effort: ReasoningEffort) {
-  const response = await fetch("https://openrouter.ai/api/v1/chat/completions", { method: "POST", headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json", "X-Title": "Cheaperuh reasoning router" }, body: JSON.stringify({ model, messages, temperature: 0, max_tokens: 200, reasoning: reasoningRequest(effort) }) });
-  if (!response.ok) throw new Error(`OpenRouter returned ${response.status}`);
-  const body = await response.json() as { choices?: Array<{ message?: { content?: string } }>; usage?: unknown };
-  return { content: body.choices?.[0]?.message?.content ?? "", usage: body.usage };
+  let lastStatus = "network failure";
+  for (let retry = 0; retry < 4; retry += 1) {
+    try {
+      const response = await fetch("https://openrouter.ai/api/v1/chat/completions", { method: "POST", headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json", "X-Title": "Cheaperuh reasoning router" }, body: JSON.stringify({ model, messages, temperature: 0, max_tokens: 200, reasoning: reasoningRequest(effort) }) });
+      if (response.ok) {
+        const body = await response.json() as { choices?: Array<{ message?: { content?: string } }>; usage?: unknown };
+        return { content: body.choices?.[0]?.message?.content ?? "", usage: body.usage };
+      }
+      lastStatus = `HTTP ${response.status}`;
+      if (response.status < 429 || response.status >= 500) throw new Error(lastStatus);
+    } catch (error) {
+      lastStatus = error instanceof Error ? error.message : "unknown error";
+    }
+    await new Promise((resolve) => setTimeout(resolve, 750 * (retry + 1)));
+  }
+  throw new Error(`OpenRouter request failed after four attempts: ${lastStatus}`);
 }
 
 async function chooseEffort(task: BenchmarkTask) {
