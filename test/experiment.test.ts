@@ -20,5 +20,7 @@ describe("nine by nine reasoning experiment", () => {
     expect(isCorrect(CANDIDATE_TASKS[0], "Use count === 0")).toBe(true);
     expect(isCorrect(CANDIDATE_TASKS[4], "17")).toBe(true);
     expect(isCorrect(CANDIDATE_TASKS[4], "The quantity is 17")).toBe(false);
+    expect(isCorrect(DEMO_TASKS.find((task) => task.id === "ordering-constraints-03")!, "B, C, A, D, E, F")).toBe(true);
+    expect(isCorrect(DEMO_TASKS.find((task) => task.id === "debug-diagnosis-02")!, "Click and submit both save.")).toBe(true);
   });
 });
