@@ -23,7 +23,9 @@ const outputPath = `results/openrouter-${strategy}-${runId}.jsonl`;
 const decisionsPath = `results/openrouter-${strategy}-${runId}-decisions.jsonl`;
 await mkdir("results", { recursive: true });
 const existingRecords = (await readFile(outputPath, "utf8").catch(() => "")).split("\n").filter(Boolean).map((line) => JSON.parse(line) as { taskId: string; choice: number; attempt: number; effort: ReasoningEffort });
+const existingDecisions = (await readFile(decisionsPath, "utf8").catch(() => "")).split("\n").filter(Boolean).map((line) => JSON.parse(line) as { taskId: string; choice: number; effort: ReasoningEffort; rationale: string });
 const recordsFor = (taskId: string, choice: number) => existingRecords.filter((record) => record.taskId === taskId && record.choice === choice);
+const decisionFor = (taskId: string, choice: number) => existingDecisions.find((decision) => decision.taskId === taskId && decision.choice === choice);
 const completed = new Set(groups.filter(({ task, choice }) => recordsFor(task.id, choice).length >= ATTEMPTS_PER_CHOICE).map(({ task, choice }) => `${task.id}:${choice}`));
 
 async function complete(messages: Array<{ role: "system" | "user"; content: string }>, effort: ReasoningEffort) {
@@ -62,9 +64,10 @@ Select exactly one effort from: ${SUPPORTED_EFFORTS.join(", ")}. Reply in exactl
 
 for (const { task, choice } of groups.filter(({ task, choice }) => !completed.has(`${task.id}:${choice}`)).slice(0, limit)) {
   const previous = recordsFor(task.id, choice);
-  const decision = previous[0] ? { effort: previous[0].effort, rationale: "Resumed existing group." } : strategy === "supervisor" ? await chooseEffort(task) : { effort: strategy as ReasoningEffort, rationale: `Always-${strategy} baseline.` };
+  const recordedDecision = decisionFor(task.id, choice);
+  const decision = recordedDecision ?? (previous[0] ? { effort: previous[0].effort, rationale: "Resumed existing group." } : strategy === "supervisor" ? await chooseEffort(task) : { effort: strategy as ReasoningEffort, rationale: `Always-${strategy} baseline.` });
   const effort = decision.effort;
-  await appendFile(decisionsPath, `${JSON.stringify({ taskId: task.id, category: task.category, choice, effort, rationale: decision.rationale, usage: "usage" in decision ? decision.usage : undefined, model, startedAt: new Date().toISOString() })}\n`);
+  if (!recordedDecision) await appendFile(decisionsPath, `${JSON.stringify({ taskId: task.id, category: task.category, choice, effort, rationale: decision.rationale, usage: "usage" in decision ? decision.usage : undefined, model, startedAt: new Date().toISOString() })}\n`);
   const pendingAttempts = Array.from({ length: ATTEMPTS_PER_CHOICE }, (_, index) => index + 1).filter((attempt) => !previous.some((record) => record.attempt === attempt));
   const completedAttempts = await Promise.all(pendingAttempts.map(async (attempt) => {
     const result = await complete([{ role: "user", content: task.prompt }], effort);
