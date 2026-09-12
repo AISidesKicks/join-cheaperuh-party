@@ -79,8 +79,13 @@ async function runGroup({ task, choice }: { task: BenchmarkTask; choice: number 
 
 const GROUP_CONCURRENCY = 3;
 for (let start = 0; start < pendingGroups.length; start += GROUP_CONCURRENCY) {
-  const batch = await Promise.all(pendingGroups.slice(start, start + GROUP_CONCURRENCY).map(runGroup));
-  for (const group of batch) {
+  const settled = await Promise.allSettled(pendingGroups.slice(start, start + GROUP_CONCURRENCY).map(runGroup));
+  for (const outcome of settled) {
+    if (outcome.status === "rejected") {
+      console.error(`Group failed and can be resumed: ${outcome.reason instanceof Error ? outcome.reason.message : "unknown error"}`);
+      continue;
+    }
+    const group = outcome.value;
     if (!group.recordedDecision) await appendFile(decisionsPath, `${JSON.stringify({ taskId: group.task.id, category: group.task.category, choice: group.choice, effort: group.effort, rationale: group.decision.rationale, usage: "usage" in group.decision ? group.decision.usage : undefined, model, startedAt: new Date().toISOString() })}\n`);
     for (const result of group.completedAttempts) await appendFile(outputPath, `${JSON.stringify(result)}\n`);
     console.log(`${group.task.id} choice=${group.choice} effort=${group.effort} attempts=${ATTEMPTS_PER_CHOICE}`);
