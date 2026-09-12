@@ -20,7 +20,7 @@ const outputPath = "results/openrouter-supervisor-demo.jsonl";
 await mkdir("results", { recursive: true });
 const existingRecords = (await readFile(outputPath, "utf8").catch(() => "")).split("\n").filter(Boolean).map((line) => JSON.parse(line) as { taskId: string; choice: number; attempt: number; effort: ReasoningEffort });
 const recordsFor = (taskId: string, choice: number) => existingRecords.filter((record) => record.taskId === taskId && record.choice === choice);
-const completed = new Set(groups.filter(({ task, choice }) => recordsFor(task.id, choice).length === ATTEMPTS_PER_CHOICE).map(({ task, choice }) => `${task.id}:${choice}`));
+const completed = new Set(groups.filter(({ task, choice }) => recordsFor(task.id, choice).length >= ATTEMPTS_PER_CHOICE).map(({ task, choice }) => `${task.id}:${choice}`));
 
 async function complete(messages: Array<{ role: "system" | "user"; content: string }>, effort: ReasoningEffort) {
   const response = await fetch("https://openrouter.ai/api/v1/chat/completions", { method: "POST", headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json", "X-Title": "Cheaperuh reasoning router" }, body: JSON.stringify({ model, messages, temperature: 0, max_tokens: 200, reasoning: reasoningRequest(effort) }) });
