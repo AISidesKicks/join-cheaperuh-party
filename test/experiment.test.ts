@@ -2,11 +2,12 @@ import { describe, expect, it } from "vitest";
 import { CANDIDATE_TASKS, DEMO_TASKS, SUPPORTED_EFFORTS, isCorrect, reasoningRequest } from "../src/experiment.js";
 
 describe("nine by nine reasoning experiment", () => {
-  it("curates nine demo tasks from a 33-task, nine-category candidate bank", () => {
+  it("curates three graded demo tasks per category from a 33-task candidate bank", () => {
     expect(new Set(CANDIDATE_TASKS.map((task) => task.category)).size).toBe(9);
     expect(CANDIDATE_TASKS).toHaveLength(33);
-    expect(DEMO_TASKS).toHaveLength(9);
+    expect(DEMO_TASKS).toHaveLength(27);
     expect(new Set(DEMO_TASKS.map((task) => task.category)).size).toBe(9);
+    expect([...new Set(DEMO_TASKS.map((task) => task.category))].every((category) => DEMO_TASKS.filter((task) => task.category === category).length === 3)).toBe(true);
   });
 
   it("allows the supervisor every supported effort including zero reasoning", () => {

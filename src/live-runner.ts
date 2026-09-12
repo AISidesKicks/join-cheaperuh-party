@@ -34,7 +34,13 @@ async function complete(messages: Array<{ role: "system" | "user"; content: stri
 }
 
 async function chooseEffort(task: BenchmarkTask) {
-  const supervisor = await complete([{ role: "system", content: `You are a cost-conscious reasoning supervisor. You see only a vague task brief. Default to none. Escalate only when the brief gives evidence of multi-step state, ambiguity, dependency chains, debugging, or test design. Select exactly one effort from: ${SUPPORTED_EFFORTS.join(", ")}. Reply in exactly two lines: EFFORT: <value> and REASON: <five words or fewer>.` }, { role: "user", content: task.brief }], "none");
+  const supervisor = await complete([{ role: "system", content: `You are a cost-conscious reasoning supervisor. You see only a vague task brief, never the hidden prompt or answer. Choose the lowest effort that is justified by evidence in the brief.
+
+Mandatory restraint rule: choose none for a literal extraction, deterministic formatting request, or isolated one-line repair unless the brief explicitly states ambiguity, multiple dependent steps, state changes, or a diagnosis problem. Do not choose minimal merely as a safety gesture.
+
+Escalation evidence: choose low or medium only for an explicit calculation, nested rule, or short dependency chain. Choose high, xhigh, or max only for stated sequential state, larger dependency graphs, ambiguity, diagnosis, or test design. Never infer hidden complexity.
+
+Select exactly one effort from: ${SUPPORTED_EFFORTS.join(", ")}. Reply in exactly two lines: EFFORT: <value> and REASON: <five words or fewer>.` }, { role: "user", content: task.brief }], "none");
   const effortMatch = supervisor.content.match(/EFFORT:\s*(none|minimal|low|medium|high|xhigh|max)/i);
   const reasonMatch = supervisor.content.match(/REASON:\s*(.+)/i);
   const selected = effortMatch?.[1].toLowerCase() as ReasoningEffort | undefined;
