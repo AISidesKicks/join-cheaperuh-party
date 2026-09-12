@@ -70,6 +70,10 @@ The supervisor's canonical combined cost was **$0.0246**, including **$0.0047** 
 
 The static demo reads the complete sanitized [expanded calibration data](docs/data/expanded-v1.json): every category-task row, three selected efforts, short supervisor rationales, success counts, token totals, and costs. Responses and credentials are excluded.
 
+### Seven-effort audit
+
+The separate measured audit ran all seven efforts three times for every selected task: 567 canonical worker attempts. It makes the original absolute-efficiency and marginal-ROI formulas measurable rather than guessed. The audit found mean difficulty **0.143**, mean compute expansion from `none` to `max` **8.44x**, mean over-compute ratio **6.59x**, and supervisor adaptive-fit correlation **0.123**. Full definitions and caveats are in the [seven-effort audit design](design/06-seven-effort-audit.md), with the sanitized [audit data](docs/data/effort-audit-v1.json).
+
 ## Next iteration: calibrated restraint
 
 The revised supervisor defaults to `none`. It may escalate only when the vague brief signals multi-step state, ambiguity, dependency chains, debugging, or test design. Every decision logs a concise rationale, effort, token use, and cost.
@@ -81,6 +85,8 @@ npm run benchmark:live -- --strategy=supervisor --run=my-run --limit=81
 npm run benchmark:live -- --strategy=none --run=my-run --limit=81
 npm run benchmark:live -- --strategy=high --run=my-run --limit=81
 npm run benchmark:publish -- --run=my-run
+npm run benchmark:audit -- --run=effort-audit-v1 --limit=189
+npm run benchmark:audit:analyze -- --run=effort-audit-v1
 ```
 
 This separates harmful underthinking from harmless overthinking: if `none` fails where `high` succeeds, it is harmful; if the revised supervisor matches `high` while costing less, it is calibrated restraint.
@@ -109,5 +115,6 @@ One limit unit makes one supervisor request and three worker attempts. The full 
 - [Implementation and validation](design/03-implementation-and-validation.md)
 - [Calibrated restraint](design/04-calibrated-restraint.md)
 - [Expanded calibration](design/05-expanded-calibration.md)
+- [Seven-effort audit and formulas](design/06-seven-effort-audit.md)
 
 AI Tinkerers Prague Hackathon 12.9.2026 - part of the global [Agents, Everywhere: Bots, Channels, & More - Global Hackathon](https://prague.aitinkerers.org/p/agents-everywhere-bots-channels-more-global-hackathon).
