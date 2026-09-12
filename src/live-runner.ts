@@ -77,7 +77,7 @@ async function runGroup({ task, choice }: { task: BenchmarkTask; choice: number 
   return { task, choice, effort, decision, recordedDecision, completedAttempts };
 }
 
-const GROUP_CONCURRENCY = 3;
+const GROUP_CONCURRENCY = strategy === "supervisor" ? 3 : 6;
 for (let start = 0; start < pendingGroups.length; start += GROUP_CONCURRENCY) {
   const settled = await Promise.allSettled(pendingGroups.slice(start, start + GROUP_CONCURRENCY).map(runGroup));
   for (const outcome of settled) {
