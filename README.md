@@ -55,12 +55,12 @@ Task shapes are original distillations inspired by [MMLU-Pro](https://arxiv.org/
 
 ## Metrics
 
-- **Success rate**: verified correct answers over the nine worker attempts.
+- **Success rate**: verified correct answers over all 81 canonical worker attempts.
 - **Selected efforts**: the supervisor's three independent choices.
 - **Zero-reasoning selection rate**: how often the supervisor declines thinking.
 - **Mean token use**: observed provider usage, enabling cost comparison across task categories.
 
-The static site provides illustrative accuracy, cost, and marginal ROI chart snapshots, plus an interactive 3D frontier. Replace illustration data with recorded JSONL before making performance claims.
+The static site provides recorded success, token-use, and effort snapshots, plus an interactive 3D frontier. New runs can replace those snapshots with their own JSONL report.
 
 ### Recorded demo snapshot
 
@@ -94,15 +94,16 @@ npm run benchmark:plan
 The plan makes no network calls. For a bounded paid pilot, place `OPENROUTER_API_KEY` in the ignored `.env` file and run one supervisor-choice group at a time:
 
 ```bash
-npm run benchmark:live -- --limit=1
+npm run benchmark:live -- --strategy=supervisor --run=my-run --limit=1
 ```
 
-One limit unit makes one supervisor request and three worker attempts. The full selected demo is `--limit=27`. Results append to ignored `results/openrouter-supervisor-demo.jsonl`; analyze a complete run with `npm run benchmark:analyze`. The runner never prints the API key.
+One limit unit makes one supervisor request and three worker attempts. The full selected demo is `--limit=27`. Results append to ignored `results/openrouter-<strategy>-<run>.jsonl`; analyze a complete run with `npm run benchmark:analyze -- results/openrouter-supervisor-my-run.jsonl --write`. The runner never prints the API key.
 
 ## Design notes
 
 - [PoC scope](design/01-poc-scope.md)
 - [Rubric and metrics](design/02-rubric-and-metrics.md)
 - [Implementation and validation](design/03-implementation-and-validation.md)
+- [Calibrated restraint](design/04-calibrated-restraint.md)
 
 AI Tinkerers Prague Hackathon 12.9.2026 - part of the global [Agents, Everywhere: Bots, Channels, & More - Global Hackathon](https://prague.aitinkerers.org/p/agents-everywhere-bots-channels-more-global-hackathon).
