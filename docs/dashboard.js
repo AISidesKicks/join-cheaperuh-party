@@ -36,7 +36,7 @@ function renderFrontier(data, audit) {
     const rotatedX = x * cy - z * sy;
     const rotatedZ = x * sy + z * cy;
     const rotatedY = y * cp - rotatedZ * sp;
-    return [canvas.width / 2 + rotatedX * 300, canvas.height * 0.72 - rotatedY * 250, rotatedZ];
+    return [canvas.width / 2 + rotatedX * 250, canvas.height * 0.56 - rotatedY * 210, rotatedZ];
   };
 
   const selectedEffort = () => efforts[Number(slider.value)];
@@ -44,12 +44,19 @@ function renderFrontier(data, audit) {
 
   function draw() {
     const effort = selectedEffort();
-    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.fillStyle = "#17213a";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.strokeStyle = "#253755";
+    context.lineWidth = 1;
+    for (let step = 90; step < canvas.width; step += 90) { context.beginPath(); context.moveTo(step, 0); context.lineTo(step, canvas.height); context.stroke(); }
+    for (let step = 80; step < canvas.height; step += 80) { context.beginPath(); context.moveTo(0, step); context.lineTo(canvas.width, step); context.stroke(); }
     context.fillStyle = "#aab7d4";
     context.font = "16px system-ui";
-    context.fillText("audited difficulty →", 535, 455);
-    context.fillText("mean supervisor effort ↑", 20, 40);
-    context.fillText("z: worker tokens", 20, 65);
+    context.fillText("green: selected effort", 22, 30);
+    context.fillText("blue: other measured tasks", 22, 55);
+    context.fillText("audited difficulty →", 525, 455);
+    context.fillText("mean supervisor effort ↑", 20, 80);
+    context.fillText("z: worker tokens", 20, 105);
     const origin = project(-0.5, -0.5, -0.5);
     [[0.5, -0.5, -0.5], [-0.5, 0.5, -0.5], [-0.5, -0.5, 0.5]].forEach((axis) => {
       const end = project(...axis);
@@ -65,12 +72,12 @@ function renderFrontier(data, audit) {
     }).sort((left, right) => left.depth - right.depth);
     projectedPoints.forEach((point) => {
       const isSelected = point.task.taskId === selectedTask?.taskId;
-      context.globalAlpha = point.matches ? 1 : 0.18;
+      context.globalAlpha = point.matches ? 1 : 0.42;
       context.fillStyle = point.matches ? "#65d6a1" : "#7aa7ff";
       context.beginPath();
-      context.arc(point.x, point.y, isSelected ? 12 : point.matches ? 8 : 4, 0, Math.PI * 2);
+      context.arc(point.x, point.y, isSelected ? 13 : point.matches ? 10 : 5, 0, Math.PI * 2);
       context.fill();
-      if (point.matches || isSelected) {
+      if (isSelected) {
         context.globalAlpha = 1;
         context.fillStyle = "#edf2ff";
         context.font = "13px system-ui";
@@ -78,6 +85,7 @@ function renderFrontier(data, audit) {
       }
     });
     context.globalAlpha = 1;
+    canvas.dataset.rendered = "true";
   }
 
   function update() {
