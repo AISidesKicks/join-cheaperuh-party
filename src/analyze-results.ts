@@ -25,6 +25,7 @@ export function canonicalWorkerRecords(records: RunRecord[]): RunRecord[] {
 export function summarizeRun(records: RunRecord[], decisions: SupervisorDecision[]) {
   const canonical = canonicalWorkerRecords(records);
   const canonicalDecisions = decisions.filter((decision, index) => decisions.findIndex((candidate) => candidate.taskId === decision.taskId && candidate.choice === decision.choice) === index);
+  const usageTotals = (items: Array<{ usage?: Usage }>) => ({ attempts: items.length, tokens: items.map(tokens).reduce((sum, value) => sum + value, 0), cost: items.map(cost).reduce((sum, value) => sum + value, 0) });
   const tasks = DEMO_TASKS.map((task) => {
     const worker = taskMetrics(canonical.filter((record) => record.taskId === task.id));
     const supervisor = canonicalDecisions.filter((decision) => decision.taskId === task.id);
@@ -32,7 +33,7 @@ export function summarizeRun(records: RunRecord[], decisions: SupervisorDecision
     const supervisorCost = supervisor.map(cost).reduce((sum, value) => sum + value, 0);
     return { taskId: task.id, category: task.category, brief: task.brief, ...worker, supervisor: { decisions: supervisor.length, tokens: supervisorTokens, cost: supervisorCost, selections: supervisor.map((decision) => ({ choice: decision.choice, effort: decision.effort, rationale: decision.rationale ?? "Not recorded" })) }, combinedCost: worker.totalCost + supervisorCost };
   });
-  return { ignoredDuplicateRecords: records.length - canonical.length, workerTotals: { attempts: canonical.length, tokens: canonical.map(tokens).reduce((sum, value) => sum + value, 0), cost: canonical.map(cost).reduce((sum, value) => sum + value, 0) }, supervisorTotals: { decisions: canonicalDecisions.length, tokens: canonicalDecisions.map(tokens).reduce((sum, value) => sum + value, 0), cost: canonicalDecisions.map(cost).reduce((sum, value) => sum + value, 0) }, tasks };
+  return { ignoredDuplicateRecords: records.length - canonical.length, workerTotals: usageTotals(canonical), recordedWorkerTotals: usageTotals(records), supervisorTotals: { decisions: canonicalDecisions.length, tokens: canonicalDecisions.map(tokens).reduce((sum, value) => sum + value, 0), cost: canonicalDecisions.map(cost).reduce((sum, value) => sum + value, 0) }, recordedSupervisorTotals: { decisions: decisions.length, tokens: decisions.map(tokens).reduce((sum, value) => sum + value, 0), cost: decisions.map(cost).reduce((sum, value) => sum + value, 0) }, tasks };
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
