@@ -136,17 +136,23 @@ function renderFrontier(data, audit) {
     }).sort((left, right) => left.depth - right.depth);
     projectedPoints.forEach((point) => {
       const isSelected = point.task.taskId === selectedTask?.taskId;
+      const radius = isSelected ? 13 : point.matches ? 10 : 5;
+      if (point.matches) {
+        context.globalAlpha = 1;
+        context.strokeStyle = "#ff9f43";
+        context.lineWidth = 4;
+        context.beginPath();
+        context.arc(point.x, point.y, radius + 5, 0, Math.PI * 2);
+        context.stroke();
+      }
       context.globalAlpha = point.matches ? 1 : 0.42;
       context.fillStyle = point.matches ? "#65d6a1" : "#7aa7ff";
       context.beginPath();
-      context.arc(point.x, point.y, isSelected ? 13 : point.matches ? 10 : 5, 0, Math.PI * 2);
+      context.arc(point.x, point.y, radius, 0, Math.PI * 2);
       context.fill();
       if (point.matches) {
         context.globalAlpha = 0.95;
         context.strokeStyle = "#0b1020";
-        context.lineWidth = 5;
-        context.stroke();
-        context.strokeStyle = "#ffb86b";
         context.lineWidth = 2;
         context.stroke();
       }
