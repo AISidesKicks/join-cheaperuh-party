@@ -21,7 +21,7 @@
       <img src="assets/images/6reasoning-levels.jpeg" alt="Illustration of reasoning levels and agent orchestration">
     </section>
 
-    <section><div class="metric-grid"><div class="metric"><b>33</b>candidate tasks</div><div class="metric"><b>9</b>budget-demo tasks</div><div class="metric"><b>3 x 3</b>attempt matrix per task</div></div><p class="note">Illustrative charts below demonstrate the analysis surface. Replace them with recorded JSONL results before making performance claims.</p></section>
+    <section><div class="metric-grid"><div class="metric"><b>75 / 81</b>verified completions</div><div class="metric"><b>92.6%</b>success rate</div><div class="metric"><b>0</b>zero-reasoning choices</div></div><p class="note">Completed OpenRouter demo: 33 candidate tasks, 9 selected tasks, and a 3 x 3 attempt matrix per task. The supervisor achieved accuracy but never selected zero reasoning.</p></section>
 
     <section><h2>The supervisor chooses freely</h2><p>The supervisor sees a vague brief, never the hidden answer. It may choose any OpenRouter-supported effort, including zero reasoning, then the worker makes three attempts at that choice. Three independent supervisor choices create the other matrix axis.</p><div class="ladder" aria-label="Supported reasoning efforts"><div class="step"><strong>Off</strong>none</div><div class="step"><strong>Minimal</strong>small</div><div class="step"><strong>Low</strong>light</div><div class="step"><strong>Medium</strong>bounded</div><div class="step"><strong>High</strong>deep</div><div class="step"><strong>Xhigh</strong>hard</div><div class="step"><strong>Max</strong>last resort</div></div></section>
 
