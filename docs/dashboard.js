@@ -20,3 +20,7 @@ document.querySelector("#taskRows").innerHTML = supervisor.tasks.map((task, inde
   const result = (report) => `${Math.round(report.tasks[index].successRate * 9)} / 9`;
   return `<tr><td><strong>${task.category}</strong><br><span class="note">${task.taskId}</span></td><td>${selections}</td><td>${result(supervisor)}</td><td>${result(none)}</td><td>${result(high)}</td><td>${money(task.combinedCost)}</td></tr>`;
 }).join("");
+
+const retryAttempts = reports.reduce((total, [, report]) => total + report.ignoredDuplicateRecords, 0);
+const recordedSpend = reports.reduce((total, [, report]) => total + report.recordedWorkerTotals.cost + report.recordedSupervisorTotals.cost, 0);
+document.querySelector("#runNote").textContent += ` Canonical scoring excludes ${retryAttempts} interrupted duplicate attempts; recorded provider spend, including retries, was ${money(recordedSpend)}.`;

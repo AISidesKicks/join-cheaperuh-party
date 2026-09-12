@@ -25,10 +25,20 @@
         "tokens": 26099,
         "cost": 0.019915810000000006
       },
+      "recordedWorkerTotals": {
+        "attempts": 573,
+        "tokens": 76086,
+        "cost": 0.060702609999999955
+      },
       "supervisorTotals": {
         "decisions": 81,
         "tokens": 17494,
         "cost": 0.0047087019999999995
+      },
+      "recordedSupervisorTotals": {
+        "decisions": 186,
+        "tokens": 40194,
+        "cost": 0.01036151600000001
       },
       "tasks": [
         {
@@ -1066,8 +1076,18 @@
         "tokens": 9574,
         "cost": 0.003727174999999997
       },
+      "recordedWorkerTotals": {
+        "attempts": 603,
+        "tokens": 25274,
+        "cost": 0.010028679999999957
+      },
       "supervisorTotals": {
         "decisions": 81,
+        "tokens": 0,
+        "cost": 0
+      },
+      "recordedSupervisorTotals": {
+        "decisions": 201,
         "tokens": 0,
         "cost": 0
       },
@@ -2107,8 +2127,18 @@
         "tokens": 37180,
         "cost": 0.030360599999999995
       },
+      "recordedWorkerTotals": {
+        "attempts": 531,
+        "tokens": 93127,
+        "cost": 0.07942792000000001
+      },
       "supervisorTotals": {
         "decisions": 81,
+        "tokens": 0,
+        "cost": 0
+      },
+      "recordedSupervisorTotals": {
+        "decisions": 177,
         "tokens": 0,
         "cost": 0
       },
