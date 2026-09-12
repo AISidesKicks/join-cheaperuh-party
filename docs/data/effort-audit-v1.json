@@ -1,0 +1,1543 @@
+{
+  "version": 1,
+  "runId": "effort-audit-v1",
+  "measured": true,
+  "protocol": {
+    "tasks": 27,
+    "efforts": [
+      "none",
+      "minimal",
+      "low",
+      "medium",
+      "high",
+      "xhigh",
+      "max"
+    ],
+    "attemptsPerEffort": 3,
+    "canonicalAttempts": 567,
+    "ignoredDuplicateAttempts": 486,
+    "threshold": 0.05
+  },
+  "summary": {
+    "meanDifficulty": 0.14285714285714285,
+    "adaptiveFitCorrelation": 0.12304265296675701,
+    "auditWorkerCost": 0.06499126500000008,
+    "meanMarginalAccuracyGain": -0.07407407407407407,
+    "meanComputeExpansionRatio": 8.436633224086783,
+    "meanOverComputeRatio": 6.585203594270666
+  },
+  "tasks": [
+    {
+      "category": "one-line-repair",
+      "supervisorMeanEffortIndex": 0,
+      "taskId": "one-line-repair-01",
+      "difficulty": 0.04761904761904767,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 7.7958768873403,
+      "marginalAccuracyGain": 0.33333333333333337,
+      "computeExpansionRatio": 8.04471544715447,
+      "marginalRoi": 2885.170225043278,
+      "diminishingReturnEffort": "low",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 0.6666666666666666,
+          "meanCost": 0.000016400000000000002,
+          "meanTokens": 39.333333333333336
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 1,
+          "meanCost": 0.0001512,
+          "meanTokens": 168
+        },
+        {
+          "effort": "low",
+          "accuracy": 1,
+          "meanCost": 0.00012493333333333333,
+          "meanTokens": 164
+        },
+        {
+          "effort": "medium",
+          "accuracy": 1,
+          "meanCost": 0.00014079999999999998,
+          "meanTokens": 159.33333333333334
+        },
+        {
+          "effort": "high",
+          "accuracy": 1,
+          "meanCost": 0.0001885,
+          "meanTokens": 189.33333333333334
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 1,
+          "meanCost": 0.0001412,
+          "meanTokens": 159.66666666666666
+        },
+        {
+          "effort": "max",
+          "accuracy": 1,
+          "meanCost": 0.00013193333333333333,
+          "meanTokens": 176.66666666666666
+        }
+      ]
+    },
+    {
+      "category": "one-line-repair",
+      "supervisorMeanEffortIndex": 0,
+      "taskId": "one-line-repair-02",
+      "difficulty": 0,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 3.4981325863678805,
+      "marginalAccuracyGain": 0,
+      "computeExpansionRatio": 3.9346405228758172,
+      "marginalRoi": 0,
+      "diminishingReturnEffort": "minimal",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 1,
+          "meanCost": 0.0000306,
+          "meanTokens": 57
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 1,
+          "meanCost": 0.0000936,
+          "meanTokens": 129
+        },
+        {
+          "effort": "low",
+          "accuracy": 1,
+          "meanCost": 0.0001251,
+          "meanTokens": 150
+        },
+        {
+          "effort": "medium",
+          "accuracy": 1,
+          "meanCost": 0.0001252,
+          "meanTokens": 155.33333333333334
+        },
+        {
+          "effort": "high",
+          "accuracy": 1,
+          "meanCost": 0.000126,
+          "meanTokens": 156
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 1,
+          "meanCost": 0.0001284,
+          "meanTokens": 158
+        },
+        {
+          "effort": "max",
+          "accuracy": 1,
+          "meanCost": 0.0001204,
+          "meanTokens": 151.33333333333334
+        }
+      ]
+    },
+    {
+      "category": "one-line-repair",
+      "supervisorMeanEffortIndex": 0,
+      "taskId": "one-line-repair-03",
+      "difficulty": 0,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 4.392249589490969,
+      "marginalAccuracyGain": 0,
+      "computeExpansionRatio": 5.19080459770115,
+      "marginalRoi": 0,
+      "diminishingReturnEffort": "minimal",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 1,
+          "meanCost": 0.0000145,
+          "meanTokens": 29.333333333333332
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 1,
+          "meanCost": 0.00006790000000000001,
+          "meanTokens": 93.33333333333333
+        },
+        {
+          "effort": "low",
+          "accuracy": 1,
+          "meanCost": 0.00007710000000000002,
+          "meanTokens": 101
+        },
+        {
+          "effort": "medium",
+          "accuracy": 1,
+          "meanCost": 0.00007110000000000001,
+          "meanTokens": 96
+        },
+        {
+          "effort": "high",
+          "accuracy": 1,
+          "meanCost": 0.00006525333333333334,
+          "meanTokens": 101.66666666666667
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 1,
+          "meanCost": 0.00007469333333333333,
+          "meanTokens": 108.33333333333333
+        },
+        {
+          "effort": "max",
+          "accuracy": 1,
+          "meanCost": 0.00007526666666666668,
+          "meanTokens": 109.33333333333333
+        }
+      ]
+    },
+    {
+      "category": "direct-extraction",
+      "supervisorMeanEffortIndex": 0,
+      "taskId": "direct-extraction-01",
+      "difficulty": 0,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 5.215070643642073,
+      "marginalAccuracyGain": 0,
+      "computeExpansionRatio": 6.56043956043956,
+      "marginalRoi": 0,
+      "diminishingReturnEffort": "minimal",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 1,
+          "meanCost": 0.0000091,
+          "meanTokens": 26.333333333333332
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 1,
+          "meanCost": 0.0000543,
+          "meanTokens": 80.33333333333333
+        },
+        {
+          "effort": "low",
+          "accuracy": 1,
+          "meanCost": 0.0000432,
+          "meanTokens": 80.33333333333333
+        },
+        {
+          "effort": "medium",
+          "accuracy": 1,
+          "meanCost": 0.0000525,
+          "meanTokens": 82
+        },
+        {
+          "effort": "high",
+          "accuracy": 1,
+          "meanCost": 0.000052900000000000005,
+          "meanTokens": 82.33333333333333
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 1,
+          "meanCost": 0.00006050000000000001,
+          "meanTokens": 88.66666666666667
+        },
+        {
+          "effort": "max",
+          "accuracy": 1,
+          "meanCost": 0.000059699999999999994,
+          "meanTokens": 88
+        }
+      ]
+    },
+    {
+      "category": "direct-extraction",
+      "supervisorMeanEffortIndex": 0,
+      "taskId": "direct-extraction-02",
+      "difficulty": 0,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 8.948554421768709,
+      "marginalAccuracyGain": 0,
+      "computeExpansionRatio": 9.97619047619048,
+      "marginalRoi": 0,
+      "diminishingReturnEffort": "minimal",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 1,
+          "meanCost": 0.0000084,
+          "meanTokens": 25
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 1,
+          "meanCost": 0.00009077500000000001,
+          "meanTokens": 108
+        },
+        {
+          "effort": "low",
+          "accuracy": 1,
+          "meanCost": 0.0000894,
+          "meanTokens": 112
+        },
+        {
+          "effort": "medium",
+          "accuracy": 1,
+          "meanCost": 0.00008219999999999999,
+          "meanTokens": 106
+        },
+        {
+          "effort": "high",
+          "accuracy": 1,
+          "meanCost": 0.0000854,
+          "meanTokens": 108.66666666666667
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 1,
+          "meanCost": 0.0000862,
+          "meanTokens": 109.33333333333333
+        },
+        {
+          "effort": "max",
+          "accuracy": 1,
+          "meanCost": 0.00008380000000000002,
+          "meanTokens": 107.33333333333333
+        }
+      ]
+    },
+    {
+      "category": "direct-extraction",
+      "supervisorMeanEffortIndex": 0,
+      "taskId": "direct-extraction-03",
+      "difficulty": 0,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 9.783882783882785,
+      "marginalAccuracyGain": 0,
+      "computeExpansionRatio": 10.923076923076925,
+      "marginalRoi": 0,
+      "diminishingReturnEffort": "minimal",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 1,
+          "meanCost": 0.0000078,
+          "meanTokens": 23
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 1,
+          "meanCost": 0.00009039999999999999,
+          "meanTokens": 111.33333333333333
+        },
+        {
+          "effort": "low",
+          "accuracy": 1,
+          "meanCost": 0.0000864,
+          "meanTokens": 108
+        },
+        {
+          "effort": "medium",
+          "accuracy": 1,
+          "meanCost": 0.0000884,
+          "meanTokens": 109.66666666666667
+        },
+        {
+          "effort": "high",
+          "accuracy": 1,
+          "meanCost": 0.0000832,
+          "meanTokens": 105.33333333333333
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 1,
+          "meanCost": 0.00009279999999999999,
+          "meanTokens": 113.33333333333333
+        },
+        {
+          "effort": "max",
+          "accuracy": 1,
+          "meanCost": 0.00008520000000000001,
+          "meanTokens": 107
+        }
+      ]
+    },
+    {
+      "category": "formatting",
+      "supervisorMeanEffortIndex": 0,
+      "taskId": "formatting-01",
+      "difficulty": 0,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 5.292425695110258,
+      "marginalAccuracyGain": 0,
+      "computeExpansionRatio": 5.657718120805368,
+      "marginalRoi": 0,
+      "diminishingReturnEffort": "minimal",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 1,
+          "meanCost": 0.000014900000000000001,
+          "meanTokens": 35.666666666666664
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 1,
+          "meanCost": 0.00008429999999999999,
+          "meanTokens": 113
+        },
+        {
+          "effort": "low",
+          "accuracy": 1,
+          "meanCost": 0.0000887,
+          "meanTokens": 116.66666666666667
+        },
+        {
+          "effort": "medium",
+          "accuracy": 1,
+          "meanCost": 0.0000855,
+          "meanTokens": 114
+        },
+        {
+          "effort": "high",
+          "accuracy": 1,
+          "meanCost": 0.0001116,
+          "meanTokens": 122.66666666666667
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 1,
+          "meanCost": 0.0000827,
+          "meanTokens": 111.66666666666667
+        },
+        {
+          "effort": "max",
+          "accuracy": 1,
+          "meanCost": 0.0000843,
+          "meanTokens": 113
+        }
+      ]
+    },
+    {
+      "category": "formatting",
+      "supervisorMeanEffortIndex": 0,
+      "taskId": "formatting-02",
+      "difficulty": 0,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 4.589610389610389,
+      "marginalAccuracyGain": 0,
+      "computeExpansionRatio": 4.8,
+      "marginalRoi": 0,
+      "diminishingReturnEffort": "minimal",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 1,
+          "meanCost": 0.000011000000000000001,
+          "meanTokens": 25.666666666666668
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 1,
+          "meanCost": 0.000056399999999999995,
+          "meanTokens": 83
+        },
+        {
+          "effort": "low",
+          "accuracy": 1,
+          "meanCost": 0.0000676,
+          "meanTokens": 92.33333333333333
+        },
+        {
+          "effort": "medium",
+          "accuracy": 1,
+          "meanCost": 0.000054800000000000004,
+          "meanTokens": 81.66666666666667
+        },
+        {
+          "effort": "high",
+          "accuracy": 1,
+          "meanCost": 0.000055599999999999996,
+          "meanTokens": 82.33333333333333
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 1,
+          "meanCost": 0.00005520000000000001,
+          "meanTokens": 82
+        },
+        {
+          "effort": "max",
+          "accuracy": 1,
+          "meanCost": 0.0000528,
+          "meanTokens": 80
+        }
+      ]
+    },
+    {
+      "category": "formatting",
+      "supervisorMeanEffortIndex": 0,
+      "taskId": "formatting-03",
+      "difficulty": 0,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 5.207792207792208,
+      "marginalAccuracyGain": 0,
+      "computeExpansionRatio": 5.545454545454545,
+      "marginalRoi": 0,
+      "diminishingReturnEffort": "minimal",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 1,
+          "meanCost": 0.000012100000000000001,
+          "meanTokens": 27.333333333333332
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 1,
+          "meanCost": 0.00007390000000000001,
+          "meanTokens": 98.33333333333333
+        },
+        {
+          "effort": "low",
+          "accuracy": 1,
+          "meanCost": 0.00007269999999999999,
+          "meanTokens": 97.33333333333333
+        },
+        {
+          "effort": "medium",
+          "accuracy": 1,
+          "meanCost": 0.00007469999999999999,
+          "meanTokens": 99
+        },
+        {
+          "effort": "high",
+          "accuracy": 1,
+          "meanCost": 0.0000695,
+          "meanTokens": 94.66666666666667
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 1,
+          "meanCost": 0.00007110000000000001,
+          "meanTokens": 96
+        },
+        {
+          "effort": "max",
+          "accuracy": 1,
+          "meanCost": 0.0000671,
+          "meanTokens": 92.66666666666667
+        }
+      ]
+    },
+    {
+      "category": "bounded-arithmetic",
+      "supervisorMeanEffortIndex": 2,
+      "taskId": "bounded-arithmetic-01",
+      "difficulty": 0,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 5.542953667953668,
+      "marginalAccuracyGain": 0,
+      "computeExpansionRatio": 6.743243243243244,
+      "marginalRoi": 0,
+      "diminishingReturnEffort": "minimal",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 1,
+          "meanCost": 0.000014799999999999999,
+          "meanTokens": 39.333333333333336
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 1,
+          "meanCost": 0.0000918,
+          "meanTokens": 123
+        },
+        {
+          "effort": "low",
+          "accuracy": 1,
+          "meanCost": 0.00008365,
+          "meanTokens": 110.66666666666667
+        },
+        {
+          "effort": "medium",
+          "accuracy": 1,
+          "meanCost": 0.000083,
+          "meanTokens": 115.66666666666667
+        },
+        {
+          "effort": "high",
+          "accuracy": 1,
+          "meanCost": 0.0001022,
+          "meanTokens": 131.66666666666666
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 1,
+          "meanCost": 0.00009900000000000001,
+          "meanTokens": 129
+        },
+        {
+          "effort": "max",
+          "accuracy": 1,
+          "meanCost": 0.0000998,
+          "meanTokens": 129.66666666666666
+        }
+      ]
+    },
+    {
+      "category": "bounded-arithmetic",
+      "supervisorMeanEffortIndex": 2,
+      "taskId": "bounded-arithmetic-02",
+      "difficulty": 0.09523809523809523,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 11.999510763209392,
+      "marginalAccuracyGain": 0,
+      "computeExpansionRatio": 12.958904109589042,
+      "marginalRoi": 0,
+      "diminishingReturnEffort": "minimal",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 1,
+          "meanCost": 0.0000146,
+          "meanTokens": 37.666666666666664
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 1,
+          "meanCost": 0.0002,
+          "meanTokens": 211.66666666666666
+        },
+        {
+          "effort": "low",
+          "accuracy": 0.6666666666666666,
+          "meanCost": 0.00021449999999999998,
+          "meanTokens": 212
+        },
+        {
+          "effort": "medium",
+          "accuracy": 1,
+          "meanCost": 0.000204125,
+          "meanTokens": 200.33333333333334
+        },
+        {
+          "effort": "high",
+          "accuracy": 1,
+          "meanCost": 0.000208725,
+          "meanTokens": 204
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 0.6666666666666666,
+          "meanCost": 0.00019519999999999997,
+          "meanTokens": 207.66666666666666
+        },
+        {
+          "effort": "max",
+          "accuracy": 1,
+          "meanCost": 0.00018920000000000002,
+          "meanTokens": 202.66666666666666
+        }
+      ]
+    },
+    {
+      "category": "bounded-arithmetic",
+      "supervisorMeanEffortIndex": 2,
+      "taskId": "bounded-arithmetic-03",
+      "difficulty": 0.6190476190476191,
+      "minimumSolvableEffort": "minimal",
+      "overComputeRatio": 0.8351194301979354,
+      "marginalAccuracyGain": 0,
+      "computeExpansionRatio": 13.270833333333334,
+      "marginalRoi": 0,
+      "diminishingReturnEffort": "medium",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 0,
+          "meanCost": 0.0000216,
+          "meanTokens": 60
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 0.3333333333333333,
+          "meanCost": 0.000272275,
+          "meanTokens": 272.6666666666667
+        },
+        {
+          "effort": "low",
+          "accuracy": 0.6666666666666666,
+          "meanCost": 0.0002518,
+          "meanTokens": 271.3333333333333
+        },
+        {
+          "effort": "medium",
+          "accuracy": 0.3333333333333333,
+          "meanCost": 0.00027614999999999996,
+          "meanTokens": 275
+        },
+        {
+          "effort": "high",
+          "accuracy": 1,
+          "meanCost": 0.00022979999999999997,
+          "meanTokens": 253
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 0.3333333333333333,
+          "meanCost": 0.0002534,
+          "meanTokens": 272.6666666666667
+        },
+        {
+          "effort": "max",
+          "accuracy": 0,
+          "meanCost": 0.00028665,
+          "meanTokens": 282
+        }
+      ]
+    },
+    {
+      "category": "boolean-logic",
+      "supervisorMeanEffortIndex": 0.6666666666666666,
+      "taskId": "boolean-logic-01",
+      "difficulty": 0,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 4.863095238095238,
+      "marginalAccuracyGain": 0,
+      "computeExpansionRatio": 5.206349206349207,
+      "marginalRoi": 0,
+      "diminishingReturnEffort": "minimal",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 1,
+          "meanCost": 0.0000126,
+          "meanTokens": 39
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 1,
+          "meanCost": 0.0000672,
+          "meanTokens": 104
+        },
+        {
+          "effort": "low",
+          "accuracy": 1,
+          "meanCost": 0.000064,
+          "meanTokens": 101.33333333333333
+        },
+        {
+          "effort": "medium",
+          "accuracy": 1,
+          "meanCost": 0.00006799999999999999,
+          "meanTokens": 104.66666666666667
+        },
+        {
+          "effort": "high",
+          "accuracy": 1,
+          "meanCost": 0.0000708,
+          "meanTokens": 107
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 1,
+          "meanCost": 0.00008072500000000001,
+          "meanTokens": 110.33333333333333
+        },
+        {
+          "effort": "max",
+          "accuracy": 1,
+          "meanCost": 0.00006560000000000001,
+          "meanTokens": 102.66666666666667
+        }
+      ]
+    },
+    {
+      "category": "boolean-logic",
+      "supervisorMeanEffortIndex": 0,
+      "taskId": "boolean-logic-02",
+      "difficulty": 0,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 5.319743935309973,
+      "marginalAccuracyGain": 0,
+      "computeExpansionRatio": 6.490566037735849,
+      "marginalRoi": 0,
+      "diminishingReturnEffort": "minimal",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 1,
+          "meanCost": 0.0000106,
+          "meanTokens": 31.333333333333332
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 1,
+          "meanCost": 0.00006159999999999999,
+          "meanTokens": 93.33333333333333
+        },
+        {
+          "effort": "low",
+          "accuracy": 1,
+          "meanCost": 0.0000668,
+          "meanTokens": 97.66666666666667
+        },
+        {
+          "effort": "medium",
+          "accuracy": 1,
+          "meanCost": 0.0000592,
+          "meanTokens": 91.33333333333333
+        },
+        {
+          "effort": "high",
+          "accuracy": 1,
+          "meanCost": 0.000054000000000000005,
+          "meanTokens": 87
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 1,
+          "meanCost": 0.000073725,
+          "meanTokens": 99
+        },
+        {
+          "effort": "max",
+          "accuracy": 1,
+          "meanCost": 0.0000688,
+          "meanTokens": 99.33333333333333
+        }
+      ]
+    },
+    {
+      "category": "boolean-logic",
+      "supervisorMeanEffortIndex": 2,
+      "taskId": "boolean-logic-03",
+      "difficulty": 0,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 5.901205936920223,
+      "marginalAccuracyGain": 0,
+      "computeExpansionRatio": 7.175324675324675,
+      "marginalRoi": 0,
+      "diminishingReturnEffort": "minimal",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 1,
+          "meanCost": 0.000015399999999999998,
+          "meanTokens": 47.333333333333336
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 1,
+          "meanCost": 0.00010732499999999998,
+          "meanTokens": 136.66666666666666
+        },
+        {
+          "effort": "low",
+          "accuracy": 1,
+          "meanCost": 0.0000952,
+          "meanTokens": 133.33333333333334
+        },
+        {
+          "effort": "medium",
+          "accuracy": 1,
+          "meanCost": 0.0000936,
+          "meanTokens": 132
+        },
+        {
+          "effort": "high",
+          "accuracy": 1,
+          "meanCost": 0.0001048,
+          "meanTokens": 141.33333333333334
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 1,
+          "meanCost": 0.000109325,
+          "meanTokens": 138
+        },
+        {
+          "effort": "max",
+          "accuracy": 1,
+          "meanCost": 0.00011049999999999999,
+          "meanTokens": 139
+        }
+      ]
+    },
+    {
+      "category": "ordering-constraints",
+      "supervisorMeanEffortIndex": 2,
+      "taskId": "ordering-constraints-01",
+      "difficulty": 0,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 5.006606110652353,
+      "marginalAccuracyGain": 0,
+      "computeExpansionRatio": 7.3468208092485545,
+      "marginalRoi": 0,
+      "diminishingReturnEffort": "minimal",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 1,
+          "meanCost": 0.0000173,
+          "meanTokens": 40.666666666666664
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 1,
+          "meanCost": 0.00008669999999999999,
+          "meanTokens": 118
+        },
+        {
+          "effort": "low",
+          "accuracy": 1,
+          "meanCost": 0.0000819,
+          "meanTokens": 114
+        },
+        {
+          "effort": "medium",
+          "accuracy": 1,
+          "meanCost": 0.0000919,
+          "meanTokens": 122.33333333333333
+        },
+        {
+          "effort": "high",
+          "accuracy": 1,
+          "meanCost": 0.00011029999999999998,
+          "meanTokens": 137.66666666666666
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 1,
+          "meanCost": 0.0000911,
+          "meanTokens": 121.66666666666667
+        },
+        {
+          "effort": "max",
+          "accuracy": 1,
+          "meanCost": 0.0001271,
+          "meanTokens": 151.66666666666666
+        }
+      ]
+    },
+    {
+      "category": "ordering-constraints",
+      "supervisorMeanEffortIndex": 2,
+      "taskId": "ordering-constraints-02",
+      "difficulty": 0,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 4.037255909558068,
+      "marginalAccuracyGain": 0,
+      "computeExpansionRatio": 3.697841726618705,
+      "marginalRoi": 0,
+      "diminishingReturnEffort": "minimal",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 1,
+          "meanCost": 0.0000139,
+          "meanTokens": 34.666666666666664
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 1,
+          "meanCost": 0.0000666,
+          "meanTokens": 99
+        },
+        {
+          "effort": "low",
+          "accuracy": 1,
+          "meanCost": 0.0000646,
+          "meanTokens": 97.33333333333333
+        },
+        {
+          "effort": "medium",
+          "accuracy": 1,
+          "meanCost": 0.000064725,
+          "meanTokens": 90.66666666666667
+        },
+        {
+          "effort": "high",
+          "accuracy": 1,
+          "meanCost": 0.00006340000000000001,
+          "meanTokens": 96.33333333333333
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 1,
+          "meanCost": 0.00006819999999999999,
+          "meanTokens": 100.33333333333333
+        },
+        {
+          "effort": "max",
+          "accuracy": 1,
+          "meanCost": 0.0000514,
+          "meanTokens": 86.33333333333333
+        }
+      ]
+    },
+    {
+      "category": "ordering-constraints",
+      "supervisorMeanEffortIndex": 3,
+      "taskId": "ordering-constraints-03",
+      "difficulty": 0.09523809523809523,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 5.182032400589102,
+      "marginalAccuracyGain": 0,
+      "computeExpansionRatio": 5.621993127147766,
+      "marginalRoi": 0,
+      "diminishingReturnEffort": "minimal",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 1,
+          "meanCost": 0.000036375,
+          "meanTokens": 61
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 0.6666666666666666,
+          "meanCost": 0.0002249,
+          "meanTokens": 243.66666666666666
+        },
+        {
+          "effort": "low",
+          "accuracy": 1,
+          "meanCost": 0.00021450000000000004,
+          "meanTokens": 235
+        },
+        {
+          "effort": "medium",
+          "accuracy": 1,
+          "meanCost": 0.0002029,
+          "meanTokens": 225.33333333333334
+        },
+        {
+          "effort": "high",
+          "accuracy": 0.6666666666666666,
+          "meanCost": 0.00022009999999999998,
+          "meanTokens": 239.66666666666666
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 1,
+          "meanCost": 0.00021620000000000002,
+          "meanTokens": 225
+        },
+        {
+          "effort": "max",
+          "accuracy": 1,
+          "meanCost": 0.0002045,
+          "meanTokens": 226.66666666666666
+        }
+      ]
+    },
+    {
+      "category": "stateful-rules",
+      "supervisorMeanEffortIndex": 2,
+      "taskId": "stateful-rules-01",
+      "difficulty": 0,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 3.851802403204273,
+      "marginalAccuracyGain": 0,
+      "computeExpansionRatio": 4.54018691588785,
+      "marginalRoi": 0,
+      "diminishingReturnEffort": "minimal",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 1,
+          "meanCost": 0.000013375,
+          "meanTokens": 36
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 1,
+          "meanCost": 0.00005520000000000001,
+          "meanTokens": 91
+        },
+        {
+          "effort": "low",
+          "accuracy": 1,
+          "meanCost": 0.000054000000000000005,
+          "meanTokens": 90
+        },
+        {
+          "effort": "medium",
+          "accuracy": 1,
+          "meanCost": 0.0000602,
+          "meanTokens": 91.33333333333333
+        },
+        {
+          "effort": "high",
+          "accuracy": 1,
+          "meanCost": 0.000054000000000000005,
+          "meanTokens": 90
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 1,
+          "meanCost": 0.000063125,
+          "meanTokens": 94
+        },
+        {
+          "effort": "max",
+          "accuracy": 1,
+          "meanCost": 0.000060725,
+          "meanTokens": 92
+        }
+      ]
+    },
+    {
+      "category": "stateful-rules",
+      "supervisorMeanEffortIndex": 2,
+      "taskId": "stateful-rules-02",
+      "difficulty": 0.04761904761904767,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 4.623277182235835,
+      "marginalAccuracyGain": 0.33333333333333337,
+      "computeExpansionRatio": 5.169984686064319,
+      "marginalRoi": 4896.5601664830465,
+      "diminishingReturnEffort": "low",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 0.6666666666666666,
+          "meanCost": 0.000016325,
+          "meanTokens": 37.333333333333336
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 1,
+          "meanCost": 0.000082,
+          "meanTokens": 113.33333333333333
+        },
+        {
+          "effort": "low",
+          "accuracy": 1,
+          "meanCost": 0.0000895,
+          "meanTokens": 113.66666666666667
+        },
+        {
+          "effort": "medium",
+          "accuracy": 1,
+          "meanCost": 0.0000796,
+          "meanTokens": 111.33333333333333
+        },
+        {
+          "effort": "high",
+          "accuracy": 1,
+          "meanCost": 0.0000848,
+          "meanTokens": 115.66666666666667
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 1,
+          "meanCost": 0.0000917,
+          "meanTokens": 115.66666666666667
+        },
+        {
+          "effort": "max",
+          "accuracy": 1,
+          "meanCost": 0.0000844,
+          "meanTokens": 115.33333333333333
+        }
+      ]
+    },
+    {
+      "category": "stateful-rules",
+      "supervisorMeanEffortIndex": 4,
+      "taskId": "stateful-rules-03",
+      "difficulty": 0.1428571428571429,
+      "minimumSolvableEffort": "minimal",
+      "overComputeRatio": 0.9736639260020555,
+      "marginalAccuracyGain": 1,
+      "computeExpansionRatio": 7.876404494382024,
+      "marginalRoi": 8169.934640522874,
+      "diminishingReturnEffort": "low",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 0,
+          "meanCost": 0.0000178,
+          "meanTokens": 49.333333333333336
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 1,
+          "meanCost": 0.0001112,
+          "meanTokens": 146.66666666666666
+        },
+        {
+          "effort": "low",
+          "accuracy": 1,
+          "meanCost": 0.00011240000000000001,
+          "meanTokens": 147.66666666666666
+        },
+        {
+          "effort": "medium",
+          "accuracy": 1,
+          "meanCost": 0.0001308,
+          "meanTokens": 163
+        },
+        {
+          "effort": "high",
+          "accuracy": 1,
+          "meanCost": 0.00012429999999999999,
+          "meanTokens": 149.66666666666666
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 1,
+          "meanCost": 0.0001212,
+          "meanTokens": 155
+        },
+        {
+          "effort": "max",
+          "accuracy": 1,
+          "meanCost": 0.00014020000000000002,
+          "meanTokens": 162.66666666666666
+        }
+      ]
+    },
+    {
+      "category": "debug-diagnosis",
+      "supervisorMeanEffortIndex": 2.6666666666666665,
+      "taskId": "debug-diagnosis-01",
+      "difficulty": 0.04761904761904767,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 5.784040866654924,
+      "marginalAccuracyGain": -0.33333333333333337,
+      "computeExpansionRatio": 7.152897657213317,
+      "marginalRoi": -2672.010688042752,
+      "diminishingReturnEffort": "minimal",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 1,
+          "meanCost": 0.000020275,
+          "meanTokens": 41.333333333333336
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 1,
+          "meanCost": 0.0001248,
+          "meanTokens": 149
+        },
+        {
+          "effort": "low",
+          "accuracy": 1,
+          "meanCost": 0.0001196,
+          "meanTokens": 144.66666666666666
+        },
+        {
+          "effort": "medium",
+          "accuracy": 1,
+          "meanCost": 0.00013639999999999998,
+          "meanTokens": 158.66666666666666
+        },
+        {
+          "effort": "high",
+          "accuracy": 1,
+          "meanCost": 0.0001492,
+          "meanTokens": 160.33333333333334
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 1,
+          "meanCost": 0.0001256,
+          "meanTokens": 149.66666666666666
+        },
+        {
+          "effort": "max",
+          "accuracy": 0.6666666666666666,
+          "meanCost": 0.00014502500000000002,
+          "meanTokens": 157.66666666666666
+        }
+      ]
+    },
+    {
+      "category": "debug-diagnosis",
+      "supervisorMeanEffortIndex": 4,
+      "taskId": "debug-diagnosis-02",
+      "difficulty": 0.19047619047619047,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 8.40728758726375,
+      "marginalAccuracyGain": -0.33333333333333337,
+      "computeExpansionRatio": 11.60905840286055,
+      "marginalRoi": -1497.9590308205072,
+      "diminishingReturnEffort": "minimal",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 1,
+          "meanCost": 0.000020974999999999998,
+          "meanTokens": 39.333333333333336
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 1,
+          "meanCost": 0.0001619,
+          "meanTokens": 177.66666666666666
+        },
+        {
+          "effort": "low",
+          "accuracy": 1,
+          "meanCost": 0.00017350000000000002,
+          "meanTokens": 187.33333333333334
+        },
+        {
+          "effort": "medium",
+          "accuracy": 1,
+          "meanCost": 0.0001747,
+          "meanTokens": 188.33333333333334
+        },
+        {
+          "effort": "high",
+          "accuracy": 0.6666666666666666,
+          "meanCost": 0.000223925,
+          "meanTokens": 218
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 0.3333333333333333,
+          "meanCost": 0.00023590000000000001,
+          "meanTokens": 239.33333333333334
+        },
+        {
+          "effort": "max",
+          "accuracy": 0.6666666666666666,
+          "meanCost": 0.0002435,
+          "meanTokens": 245.66666666666666
+        }
+      ]
+    },
+    {
+      "category": "debug-diagnosis",
+      "supervisorMeanEffortIndex": 4,
+      "taskId": "debug-diagnosis-03",
+      "difficulty": 0.2857142857142857,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 4.912068230277185,
+      "marginalAccuracyGain": -0.33333333333333337,
+      "computeExpansionRatio": 5.4262686567164184,
+      "marginalRoi": -1798.399424512184,
+      "diminishingReturnEffort": "minimal",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 1,
+          "meanCost": 0.000041875,
+          "meanTokens": 65.33333333333333
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 1,
+          "meanCost": 0.00024292499999999998,
+          "meanTokens": 243.33333333333334
+        },
+        {
+          "effort": "low",
+          "accuracy": 0.3333333333333333,
+          "meanCost": 0.00024390000000000002,
+          "meanTokens": 258
+        },
+        {
+          "effort": "medium",
+          "accuracy": 0.6666666666666666,
+          "meanCost": 0.0002355,
+          "meanTokens": 251
+        },
+        {
+          "effort": "high",
+          "accuracy": 1,
+          "meanCost": 0.000218525,
+          "meanTokens": 222.66666666666666
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 0.3333333333333333,
+          "meanCost": 0.0002299,
+          "meanTokens": 246.33333333333334
+        },
+        {
+          "effort": "max",
+          "accuracy": 0.6666666666666666,
+          "meanCost": 0.00022722500000000003,
+          "meanTokens": 231.33333333333334
+        }
+      ]
+    },
+    {
+      "category": "test-design",
+      "supervisorMeanEffortIndex": 0.3333333333333333,
+      "taskId": "test-design-01",
+      "difficulty": 0.8571428571428572,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 14.129807692307693,
+      "marginalAccuracyGain": -1,
+      "computeExpansionRatio": 16.21794871794872,
+      "marginalRoi": -4212.299915754002,
+      "diminishingReturnEffort": "minimal",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 1,
+          "meanCost": 0.0000156,
+          "meanTokens": 36
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 0,
+          "meanCost": 0.00025015,
+          "meanTokens": 235.33333333333334
+        },
+        {
+          "effort": "low",
+          "accuracy": 0,
+          "meanCost": 0.00027885000000000003,
+          "meanTokens": 258
+        },
+        {
+          "effort": "medium",
+          "accuracy": 0,
+          "meanCost": 0.00020899999999999998,
+          "meanTokens": 217.66666666666666
+        },
+        {
+          "effort": "high",
+          "accuracy": 0,
+          "meanCost": 0.0002574,
+          "meanTokens": 258
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 0,
+          "meanCost": 0.00027897500000000005,
+          "meanTokens": 258.3333333333333
+        },
+        {
+          "effort": "max",
+          "accuracy": 0,
+          "meanCost": 0.000253,
+          "meanTokens": 254.33333333333334
+        }
+      ]
+    },
+    {
+      "category": "test-design",
+      "supervisorMeanEffortIndex": 0,
+      "taskId": "test-design-02",
+      "difficulty": 0.5714285714285714,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 16.618646616541355,
+      "marginalAccuracyGain": -0.6666666666666666,
+      "computeExpansionRatio": 23.454736842105266,
+      "marginalRoi": -2500.156259766235,
+      "diminishingReturnEffort": "low",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 0.6666666666666666,
+          "meanCost": 0.000011874999999999999,
+          "meanTokens": 32.333333333333336
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 1,
+          "meanCost": 0.0002015,
+          "meanTokens": 210.66666666666666
+        },
+        {
+          "effort": "low",
+          "accuracy": 0,
+          "meanCost": 0.0002571,
+          "meanTokens": 257
+        },
+        {
+          "effort": "medium",
+          "accuracy": 0,
+          "meanCost": 0.0002571,
+          "meanTokens": 257
+        },
+        {
+          "effort": "high",
+          "accuracy": 1,
+          "meanCost": 0.0001567,
+          "meanTokens": 173.33333333333334
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 0.3333333333333333,
+          "meanCost": 0.000218625,
+          "meanTokens": 212.66666666666666
+        },
+        {
+          "effort": "max",
+          "accuracy": 0,
+          "meanCost": 0.000278525,
+          "meanTokens": 257
+        }
+      ]
+    },
+    {
+      "category": "test-design",
+      "supervisorMeanEffortIndex": 2,
+      "taskId": "test-design-03",
+      "difficulty": 0.8571428571428572,
+      "minimumSolvableEffort": "none",
+      "overComputeRatio": 15.088783943329396,
+      "marginalAccuracyGain": -1,
+      "computeExpansionRatio": 17.196694214876032,
+      "marginalRoi": -4082.0491886927243,
+      "diminishingReturnEffort": "minimal",
+      "efforts": [
+        {
+          "effort": "none",
+          "accuracy": 1,
+          "meanCost": 0.000015125,
+          "meanTokens": 42.333333333333336
+        },
+        {
+          "effort": "minimal",
+          "accuracy": 0,
+          "meanCost": 0.0002601,
+          "meanTokens": 267
+        },
+        {
+          "effort": "low",
+          "accuracy": 0,
+          "meanCost": 0.0002601,
+          "meanTokens": 267
+        },
+        {
+          "effort": "medium",
+          "accuracy": 0,
+          "meanCost": 0.0002601,
+          "meanTokens": 267
+        },
+        {
+          "effort": "high",
+          "accuracy": 0,
+          "meanCost": 0.0002819,
+          "meanTokens": 267.3333333333333
+        },
+        {
+          "effort": "xhigh",
+          "accuracy": 0,
+          "meanCost": 0.0002601,
+          "meanTokens": 267
+        },
+        {
+          "effort": "max",
+          "accuracy": 0,
+          "meanCost": 0.0002601,
+          "meanTokens": 267
+        }
+      ]
+    }
+  ]
+}
