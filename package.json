@@ -5,7 +5,10 @@
   "scripts": {
     "build": "tsc --noEmit",
     "test": "vitest run",
-    "benchmark:demo": "node --import tsx src/cli.ts"
+    "benchmark:demo": "node --import tsx src/cli.ts",
+    "benchmark:plan": "node --import tsx src/live-runner.ts --plan",
+    "benchmark:live": "node --import tsx src/live-runner.ts --live",
+    "benchmark:analyze": "node --import tsx src/analyze-results.ts"
   },
   "dependencies": {
     "microsandbox": "^0.6.18"

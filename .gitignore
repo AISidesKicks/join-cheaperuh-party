@@ -1,6 +1,7 @@
 .kilo/
 node_modules/
 dist/
+results/
 .DS_Store
 Thumbs.db
 .env

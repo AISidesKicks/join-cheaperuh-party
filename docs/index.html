@@ -3,101 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Join cheaperuh party</title>
+  <title>Join cheaperuh party - reasoning router</title>
   <style>
-    :root {
-      --bg: #0f1115;
-      --fg: #e6e6e6;
-      --muted: #9aa0a6;
-      --accent: #6ea8fe;
-      --card: #171a21;
-      --border: #2a2f3a;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      line-height: 1.6;
-    }
-    main {
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 3rem 1.25rem 4rem;
-    }
-    h1 {
-      font-size: 2.2rem;
-      margin: 0 0 0.5rem;
-    }
-    h1 a { color: inherit; text-decoration: none; }
-    h1 a:hover { color: var(--accent); }
-    h2 {
-      font-size: 1.35rem;
-      margin: 2.5rem 0 0.75rem;
-      color: var(--accent);
-    }
-    .party {
-      font-size: 1.15rem;
-      letter-spacing: 0.03em;
-      margin: 0 0 1.5rem;
-    }
-    .note {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
-      color: var(--muted);
-      margin-bottom: 2rem;
-    }
-    .note strong { color: var(--fg); }
-    ul {
-      padding-left: 1.25rem;
-      margin: 0 0 1.5rem;
-    }
-    li { margin-bottom: 0.75rem; }
-    strong { color: var(--fg); }
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      display: block;
-      margin: 1.5rem 0 2.5rem;
-    }
-    .hackathon {
-      border-top: 1px solid var(--border);
-      padding-top: 1.5rem;
-      color: var(--muted);
-    }
-    .hackathon a { color: var(--accent); }
-    a { color: var(--accent); }
+    :root { --bg:#0b1020; --surface:#141b31; --fg:#edf2ff; --muted:#aab7d4; --accent:#65d6a1; --blue:#7aa7ff; --orange:#ffb86b; --border:#2d3858; }
+    * { box-sizing:border-box; } body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    main { max-width:1120px; margin:auto; padding:3rem 1.25rem 5rem; } h1 { font-size:clamp(2.4rem,7vw,5.6rem); line-height:.95; margin:0; letter-spacing:-.06em; } h2 { margin:3.5rem 0 1rem; font-size:1.7rem; } h3 { margin:0 0 .5rem; } a { color:var(--accent); } .eyebrow { color:var(--accent); letter-spacing:.14em; text-transform:uppercase; font-size:.8rem; font-weight:700; } .lede { max-width:760px; font-size:1.25rem; color:var(--muted); }
+    .hero { display:grid; grid-template-columns:1.1fr .9fr; gap:2rem; align-items:center; } .hero img { width:100%; border-radius:18px; border:1px solid var(--border); } .metric-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:2rem 0; } .metric { background:var(--surface); border:1px solid var(--border); padding:1rem; border-radius:12px; } .metric b { display:block; color:var(--accent); font-size:2rem; }
+    .ladder { display:grid; grid-template-columns:repeat(9,1fr); gap:5px; margin:1rem 0 2rem; } .step { min-height:70px; padding:.5rem; border-radius:7px; background:var(--surface); border:1px solid var(--border); text-align:center; color:var(--muted); } .step strong { display:block; color:var(--fg); font-size:1.1rem; } .step:nth-child(1) { border-color:var(--accent); } .charts { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; } figure { margin:0; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1rem; } figcaption { color:var(--muted); font-size:.9rem; } svg { width:100%; height:auto; overflow:visible; } .axis { stroke:var(--border); } .line { fill:none; stroke:var(--accent); stroke-width:4; } .line2 { fill:none; stroke:var(--blue); stroke-width:4; } .dot { fill:var(--orange); }
+    .explorer { display:grid; grid-template-columns:1fr 280px; gap:1.25rem; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:1rem; } canvas { width:100%; aspect-ratio:1.55; background:#10172a; border-radius:9px; } label { display:block; font-weight:700; } input { width:100%; accent-color:var(--accent); } .readout { color:var(--accent); font-size:2rem; font-weight:700; } table { width:100%; border-collapse:collapse; } th,td { text-align:left; padding:.65rem; border-bottom:1px solid var(--border); } th { color:var(--accent); } code { color:var(--orange); } .note { color:var(--muted); }
+    @media (max-width:760px) { .hero,.explorer { grid-template-columns:1fr; } .metric-grid,.charts { grid-template-columns:1fr; } .ladder { grid-template-columns:repeat(3,1fr); } }
   </style>
 </head>
 <body>
   <main>
-    <h1><a href="https://join.cheaperuh.party">Join cheaperuh party</a></h1>
+    <section class="hero">
+      <div><p class="eyebrow">AI Tinkerers Prague 2026</p><h1>Join<br>cheaperuh<br>party.</h1><p class="lede">A reasoning router should choose the smallest useful amount of thought. No thinking for a one-line repair. More only when the task earns it.</p></div>
+      <img src="assets/images/6reasoning-levels.jpeg" alt="Illustration of reasoning levels and agent orchestration">
+    </section>
 
-    <p class="party">Join cheaperuh (&#269;ipera) PARTY</p>
+    <section><div class="metric-grid"><div class="metric"><b>9 x 9</b>categories and tasks</div><div class="metric"><b>9</b>numeric reasoning settings</div><div class="metric"><b>729</b>calibration cells per model</div></div><p class="note">Illustrative charts below demonstrate the analysis surface. Replace them with recorded JSONL calibration results before making performance claims.</p></section>
 
-    <p class="note">In Czech, the word <strong>&#269;ipera</strong> means a lively, brisk, nimble, or energetic person (often used affectionately for an active child). In this project it is used in a sarcastic way - AI is many times too overcommitted to do the task ...</p>
+    <section><h2>One continuous reasoning control</h2><p>DeepSeek V4.1 Flash supports numeric reasoning effort from 1 to 100. This experiment treats 0 as thinking disabled and samples the full range instead of hiding it behind four coarse labels.</p><div class="ladder" aria-label="Nine reasoning settings"><div class="step"><strong>Off</strong>0</div><div class="step"><strong>Warm-up</strong>12</div><div class="step"><strong>Low</strong>25</div><div class="step"><strong>Low+</strong>38</div><div class="step"><strong>High</strong>50</div><div class="step"><strong>High+</strong>63</div><div class="step"><strong>Xhigh</strong>75</div><div class="step"><strong>Xhigh+</strong>88</div><div class="step"><strong>Max</strong>100</div></div></section>
 
-    <h2>Can AI really adjust its intelligence to real tasks?</h2>
+    <section><h2>What the calibration should reveal</h2><div class="charts">
+      <figure><h3>Accuracy curve</h3><svg viewBox="0 0 280 190" role="img" aria-label="Illustrative accuracy rising with effort"><line class="axis" x1="35" y1="155" x2="265" y2="155"/><line class="axis" x1="35" y1="20" x2="35" y2="155"/><path class="line" d="M35 128 L64 122 L92 105 L121 94 L150 73 L179 60 L207 52 L236 48 L265 45"/><text x="35" y="180" fill="currentColor">Off</text><text x="240" y="180" fill="currentColor">Max</text><text x="6" y="22" fill="currentColor">accuracy</text></svg><figcaption>Does extra thought buy verified completions?</figcaption></figure>
+      <figure><h3>Cost curve</h3><svg viewBox="0 0 280 190" role="img" aria-label="Illustrative cost rising with effort"><line class="axis" x1="35" y1="155" x2="265" y2="155"/><line class="axis" x1="35" y1="20" x2="35" y2="155"/><path class="line2" d="M35 142 L64 137 L92 129 L121 116 L150 101 L179 82 L207 63 L236 42 L265 25"/><text x="35" y="180" fill="currentColor">Off</text><text x="240" y="180" fill="currentColor">Max</text><text x="11" y="22" fill="currentColor">cost</text></svg><figcaption>Token and latency cost must remain visible.</figcaption></figure>
+      <figure><h3>Marginal ROI</h3><svg viewBox="0 0 280 190" role="img" aria-label="Illustrative diminishing marginal return"><line class="axis" x1="35" y1="155" x2="265" y2="155"/><line class="axis" x1="35" y1="20" x2="35" y2="155"/><path class="line" d="M35 35 L64 48 L92 61 L121 82 L150 105 L179 120 L207 135 L236 144 L265 149"/><circle class="dot" cx="150" cy="105" r="6"/><text x="35" y="180" fill="currentColor">Off</text><text x="240" y="180" fill="currentColor">Max</text><text x="5" y="22" fill="currentColor">gain/cost</text></svg><figcaption>The useful stopping point is where gains flatten.</figcaption></figure>
+    </div></section>
 
-    <h2>Cursor Projects Beta Launched on September 10, 2026</h2>
+    <section><h2>3D task frontier</h2><div class="explorer"><canvas id="frontier" width="760" height="490" aria-label="Interactive 3D task frontier"></canvas><div><label for="effort">Inspect suggested effort</label><input id="effort" type="range" min="0" max="100" value="25" step="1"><div class="readout" id="effortValue">25</div><p id="recommendation">One-line repair: start at Off or Low.</p><p class="note">Axes: x difficulty, y minimum solvable effort, z over-compute. Drag the chart to rotate it.</p></div></div></section>
 
-    <p>Projects shift Cursor from a file-level editor into an autonomous agent manager:</p>
+    <section><h2>9 categories, including the easy work</h2><table><thead><tr><th>Category</th><th>Why it matters</th><th>Expected region</th></tr></thead><tbody><tr><td>One-line repair</td><td>Localized typo, boundary, or syntax correction</td><td>Off to Low</td></tr><tr><td>Direct extraction and formatting</td><td>Proves the router can decline excess reasoning</td><td>Off</td></tr><tr><td>Arithmetic and boolean logic</td><td>Short constrained chains</td><td>Low to High</td></tr><tr><td>Ordering and stateful rules</td><td>Multi-step dependencies</td><td>High to Xhigh</td></tr><tr><td>Debug diagnosis and test design</td><td>Causal and boundary reasoning</td><td>Xhigh to Max</td></tr></tbody></table></section>
 
-    <ul>
-      <li><strong>The Coordinator Agent:</strong> When you start a Project and describe a massive goal (like a full app migration or building an entire feature), a top-level Coordinator Agent takes over. The coordinator doesn't actually write code; instead, it acts as a project manager - planning the architecture, mapping out the roadmap, and spawning thousands of subagents to execute individual pieces.</li>
-      <li><strong>Under the Hood:</strong> Recursive Swarm Architecture</li>
-    </ul>
-
-    <p>So the question is: can AI really guess the level of intelligence needed per task so it will not burn all your credit and patience with a swarm of 1000 agents?</p>
-
-    <img src="assets/images/6reasoning-levels.jpeg" alt="Models are not inherently lazy - reasoning levels and AI harness multi-agent orchestration">
-
-    <p class="hackathon">AI Tinkerers Prague Hackathon 12.9.2026 - part of the global <a href="https://prague.aitinkerers.org/p/agents-everywhere-bots-channels-more-global-hackathon">Agents, Everywhere: Bots, Channels, &amp; More - Global Hackathon</a>, see link for details</p>
+    <section><h2>Run the calibration</h2><p>Use <code>npm run benchmark:plan</code> to inspect the 729-request plan. OpenRouter only accepts named gateway efforts, so true numeric calibration uses direct DeepSeek credentials: <code>npm run benchmark:live -- --provider=deepseek --limit=9</code>. Keys remain in ignored <code>.env</code>; no key is shown in output or checked into Git.</p><p class="note">Model details: <a href="https://openrouter.ai/deepseek/deepseek-v4.1-flash">OpenRouter model page</a> and <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/main/encoding/README.md">DeepSeek numeric reasoning reference</a>.</p></section>
   </main>
+  <script>
+    const points=[['repair',.08,.04,.12],['extract',.03,0,.08],['format',.12,.1,.2],['arithmetic',.35,.35,.35],['logic',.42,.42,.42],['order',.58,.5,.45],['state',.68,.63,.52],['debug',.82,.78,.32],['tests',.9,.9,.2]];
+    const canvas=document.getElementById('frontier'),ctx=canvas.getContext('2d'),slider=document.getElementById('effort'),value=document.getElementById('effortValue'),rec=document.getElementById('recommendation'); let yaw=-.55,pitch=.42,drag;
+    function project(x,y,z){const cy=Math.cos(yaw),sy=Math.sin(yaw),cp=Math.cos(pitch),sp=Math.sin(pitch);const rx=x*cy-z*sy,rz=x*sy+z*cy,ry=y*cp-rz*sp;return [canvas.width/2+rx*300,canvas.height*.72-ry*250,rz];}
+    function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillStyle='#aab7d4';ctx.font='16px system-ui';ctx.fillText('difficulty →',570,455);ctx.fillText('minimum effort ↑',20,40);ctx.fillText('z: over-compute',20,65);const origin=project(-.5,-.5,-.5);[[.5,-.5,-.5],[ -.5,.5,-.5],[-.5,-.5,.5]].forEach((p,i)=>{const q=project(...p);ctx.strokeStyle='#2d3858';ctx.beginPath();ctx.moveTo(...origin);ctx.lineTo(...q);ctx.stroke();});points.forEach(([name,x,y,z])=>{const [px,py,depth]=project(x-.5,y-.5,z-.5);ctx.fillStyle=depth>0?'#65d6a1':'#7aa7ff';ctx.beginPath();ctx.arc(px,py,8,0,Math.PI*2);ctx.fill();ctx.fillStyle='#edf2ff';ctx.fillText(name,px+11,py+5);});}
+    function update(){const n=Number(slider.value);value.textContent=n;rec.textContent=n===0?'Simple tasks: reasoning disabled.':n<=25?'One-line repair: start at this low effort.':n<=63?'Multi-step constraints: moderate reasoning.':'Debugging and test design: reserve deep reasoning.';draw();} slider.addEventListener('input',update);canvas.addEventListener('pointerdown',e=>{drag=[e.clientX,e.clientY];canvas.setPointerCapture(e.pointerId)});canvas.addEventListener('pointermove',e=>{if(!drag)return;yaw+=(e.clientX-drag[0])*.01;pitch+=(e.clientY-drag[1])*.01;drag=[e.clientX,e.clientY];draw()});canvas.addEventListener('pointerup',()=>drag=null);update();
+  </script>
 </body>
 </html>

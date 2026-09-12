@@ -2,9 +2,9 @@
 
 ## Goal
 
-Demonstrate a logical reasoning router: given one task, suggest one reasoning level before invoking a model. It does not route between models and it does not make nine live calls per task.
+Demonstrate a logical reasoning router: given one task, suggest one reasoning level before invoking a model. It does not route between models. Calibration makes nine live calls per task; evaluation makes one.
 
-The 3 x 3 matrix is calibration evidence. For each task shape, three attempts at each of `L1`, `L2`, and `L3` establish a reference response curve. A router recommendation is replayed against that curve to estimate its expected accuracy and cost.
+The 9 x 9 matrix is calibration evidence. There are nine categories with nine tasks each, evaluated at nine reasoning settings from disabled thinking through 100. A router recommendation is replayed against that curve to estimate its expected accuracy and cost.
 
 ## Limits
 

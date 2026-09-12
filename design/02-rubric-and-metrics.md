@@ -1,13 +1,18 @@
-# Stage 2: 12-task rubric and metrics
+# Stage 2: 9 x 9 rubric and metrics
 
-| Rubric | Tasks | Signals for a router | Default level |
+| Rubric | Tasks | Signals for a router | Likely setting |
 |---|---:|---|---|
-| Direct extraction | 3 | One fact or direct format conversion, no dependency chain | L1 |
-| Bounded transformation | 3 | Several stated constraints or arithmetic steps | L2 |
-| Compositional reasoning | 3 | Multi-hop dependencies, ordering, counterfactuals, ambiguity checks | L2 |
-| Executable debugging | 3 | Code semantics, hidden edge cases, test or tool requirement | L3 |
+| One-line repair | 9 | Local syntax or boundary correction | Off to Low |
+| Direct extraction | 9 | One literal fact | Off |
+| Formatting | 9 | Deterministic text transformation | Off to Low |
+| Bounded arithmetic | 9 | Short numeric chain | Low to High |
+| Boolean logic | 9 | Explicit rule evaluation | Low to High |
+| Ordering constraints | 9 | Dependencies and ordering | High |
+| Stateful rules | 9 | Sequential state changes | High to Xhigh |
+| Debug diagnosis | 9 | Causal code reasoning | Xhigh |
+| Test design | 9 | Boundary and invariant selection | Xhigh to Max |
 
-Every task has a prompt, a verifier rubric, and a compact `complexity` profile. This lets a rule-based router work now and lets a model-based assessor later return the same `L1` to `L3` choice.
+Every task has a prompt, deterministic answer, and matching rule. This lets a rule-based router work now and lets a model-based assessor later return one numeric effort.
 
 ## Reference metrics
 
