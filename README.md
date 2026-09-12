@@ -66,6 +66,20 @@ The completed OpenRouter demo produced 81 canonical worker attempts. It verified
 
 The supervisor selected `low` 20 times, `medium` 6 times, and `minimal` once. It selected `none` **zero times**. The result is exactly the kind of failure this project is designed to reveal: good completion accuracy, but no willingness to save money on tasks such as direct extraction and one-line repair.
 
+## Next iteration: calibrated restraint
+
+The revised supervisor defaults to `none`. It may escalate only when the vague brief signals multi-step state, ambiguity, dependency chains, debugging, or test design. Every decision logs a concise rationale, effort, token use, and cost.
+
+Compare it against two controls with the same three-attempt groups:
+
+```bash
+npm run benchmark:live -- --strategy=supervisor --limit=27
+npm run benchmark:live -- --strategy=none --limit=27
+npm run benchmark:live -- --strategy=high --limit=27
+```
+
+This separates harmful underthinking from harmless overthinking: if `none` fails where `high` succeeds, it is harmful; if the revised supervisor matches `high` while costing less, it is calibrated restraint.
+
 ## Run it
 
 ```bash
