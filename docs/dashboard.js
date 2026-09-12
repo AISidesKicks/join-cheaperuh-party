@@ -1,4 +1,4 @@
-const money = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 4, maximumFractionDigits: 4 });
+const money = (value) => new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 4, maximumFractionDigits: 4 }).format(value);
 const percent = (value) => `${(value * 100).toFixed(1)}%`;
 const totalSuccess = (report) => report.tasks.reduce((total, task) => total + task.successRate * 9, 0);
 
