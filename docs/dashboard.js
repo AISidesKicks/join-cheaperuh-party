@@ -90,7 +90,7 @@ function renderFrontier(data, audit) {
       context.lineTo(...end);
       context.stroke();
       context.strokeStyle = color;
-      context.lineWidth = 3;
+      context.lineWidth = 4;
       context.beginPath();
       context.moveTo(...origin);
       context.lineTo(...end);
@@ -98,8 +98,8 @@ function renderFrontier(data, audit) {
       context.fillStyle = color;
       context.beginPath();
       context.moveTo(end[0], end[1]);
-      context.lineTo(end[0] - nx * 14 + px * 7, end[1] - ny * 14 + py * 7);
-      context.lineTo(end[0] - nx * 14 - px * 7, end[1] - ny * 14 - py * 7);
+      context.lineTo(end[0] - nx * 17 + px * 8, end[1] - ny * 17 + py * 8);
+      context.lineTo(end[0] - nx * 17 - px * 8, end[1] - ny * 17 - py * 8);
       context.closePath();
       context.fill();
       [[0.5, middle], [1, endTick]].forEach(([position, tick]) => {
@@ -124,8 +124,8 @@ function renderFrontier(data, audit) {
     drawPlane([origin, xEnd, xyEnd, yEnd], "rgba(122, 167, 255, .055)");
     drawPlane([origin, xEnd, xzEnd, zEnd], "rgba(101, 214, 161, .045)");
     drawPlane([origin, yEnd, yzEnd, zEnd], "rgba(255, 184, 107, .035)");
-    label("Drag to rotate", 22, 29, "#aab7d4");
-    label("green = selected effort  ·  blue = other measured task", 22, 52, "#aab7d4");
+    label("3D AXES:  X difficulty  ·  Y effort  ·  Z worker tokens", 22, 29, "#edf2ff");
+    label("green = selected effort  ·  blue = other measured task  ·  drag to rotate", 22, 52, "#aab7d4");
     drawAxis(xEnd, "#ffb86b", "X difficulty", "0.5", "hard");
     drawAxis(yEnd, "#65d6a1", "Y supervisor effort", "medium", "max");
     drawAxis(zEnd, "#7aa7ff", "Z worker tokens", formatTokenTick((minTokens + maxTokens) / 2), formatTokenTick(maxTokens));
