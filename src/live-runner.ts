@@ -17,6 +17,7 @@ const apiKey = process.env.OPENROUTER_API_KEY;
 const model = process.env.OPENROUTER_MODEL ?? "deepseek/deepseek-v4.1-flash";
 if (!apiKey) throw new Error("OPENROUTER_API_KEY is required in .env");
 const outputPath = "results/openrouter-supervisor-demo.jsonl";
+const decisionsPath = "results/openrouter-supervisor-decisions.jsonl";
 await mkdir("results", { recursive: true });
 const existingRecords = (await readFile(outputPath, "utf8").catch(() => "")).split("\n").filter(Boolean).map((line) => JSON.parse(line) as { taskId: string; choice: number; attempt: number; effort: ReasoningEffort });
 const recordsFor = (taskId: string, choice: number) => existingRecords.filter((record) => record.taskId === taskId && record.choice === choice);
@@ -29,16 +30,18 @@ async function complete(messages: Array<{ role: "system" | "user"; content: stri
   return { content: body.choices?.[0]?.message?.content ?? "", usage: body.usage };
 }
 
-async function chooseEffort(task: BenchmarkTask): Promise<ReasoningEffort> {
+async function chooseEffort(task: BenchmarkTask) {
   const supervisor = await complete([{ role: "system", content: `You are a cost-conscious reasoning supervisor. You see only a vague task brief. Select exactly one effort from: ${SUPPORTED_EFFORTS.join(", ")}. Prefer the least effort likely to complete the task. Reply with only that effort word.` }, { role: "user", content: task.brief }], "none");
   const selected = supervisor.content.trim().toLowerCase() as ReasoningEffort;
   if (!SUPPORTED_EFFORTS.includes(selected)) throw new Error(`Supervisor returned an unsupported effort.`);
-  return selected;
+  return { effort: selected, usage: supervisor.usage };
 }
 
 for (const { task, choice } of groups.filter(({ task, choice }) => !completed.has(`${task.id}:${choice}`)).slice(0, limit)) {
   const previous = recordsFor(task.id, choice);
-  const effort = previous[0]?.effort ?? await chooseEffort(task);
+  const decision = previous[0] ? { effort: previous[0].effort } : await chooseEffort(task);
+  const effort = decision.effort;
+  if ("usage" in decision) await appendFile(decisionsPath, `${JSON.stringify({ taskId: task.id, category: task.category, choice, effort, usage: decision.usage, model, startedAt: new Date().toISOString() })}\n`);
   const pendingAttempts = Array.from({ length: ATTEMPTS_PER_CHOICE }, (_, index) => index + 1).filter((attempt) => !previous.some((record) => record.attempt === attempt));
   const completedAttempts = await Promise.all(pendingAttempts.map(async (attempt) => {
     const result = await complete([{ role: "user", content: task.prompt }], effort);
