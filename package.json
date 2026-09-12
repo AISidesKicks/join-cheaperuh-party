@@ -1,0 +1,19 @@
+{
+  "name": "join-cheaperuh-party",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit",
+    "test": "vitest run",
+    "benchmark:demo": "node --import tsx src/cli.ts"
+  },
+  "dependencies": {
+    "microsandbox": "^0.6.18"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.2",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.0"
+  }
+}
