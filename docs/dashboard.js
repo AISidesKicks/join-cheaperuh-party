@@ -141,6 +141,15 @@ function renderFrontier(data, audit) {
       context.beginPath();
       context.arc(point.x, point.y, isSelected ? 13 : point.matches ? 10 : 5, 0, Math.PI * 2);
       context.fill();
+      if (point.matches) {
+        context.globalAlpha = 0.95;
+        context.strokeStyle = "#0b1020";
+        context.lineWidth = 5;
+        context.stroke();
+        context.strokeStyle = "#c9ffe6";
+        context.lineWidth = 1.5;
+        context.stroke();
+      }
       if (isSelected) {
         context.globalAlpha = 1;
         context.fillStyle = "#edf2ff";
