@@ -146,8 +146,8 @@ function renderFrontier(data, audit) {
         context.strokeStyle = "#0b1020";
         context.lineWidth = 5;
         context.stroke();
-        context.strokeStyle = "#c9ffe6";
-        context.lineWidth = 1.5;
+        context.strokeStyle = "#ffb86b";
+        context.lineWidth = 2;
         context.stroke();
       }
       if (isSelected) {
