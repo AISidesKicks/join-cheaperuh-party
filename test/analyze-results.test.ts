@@ -1,16 +1,14 @@
 import { describe, expect, it } from "vitest";
-import { REASONING_LEVELS, type ReasoningEffort } from "../src/experiment.js";
+import { ATTEMPTS_PER_CHOICE, SUPERVISOR_CHOICES, type ReasoningEffort } from "../src/experiment.js";
 import { taskMetrics, type RunRecord } from "../src/analyze-results.js";
 
 describe("nine-level analysis", () => {
-  it("finds the sufficient effort and preserves a 1.0 no-waste baseline", () => {
-    const records: RunRecord[] = REASONING_LEVELS.map((effort) => ({ taskId: "sample", category: "sample", effort, success: effort >= 50, usage: { total_tokens: 10 + effort } }));
-    expect(taskMetrics(records)).toMatchObject({ minimumSolvableEffort: 50, difficulty: 4 / 9 });
-    expect(taskMetrics(REASONING_LEVELS.map((effort) => ({ taskId: "sample", category: "sample", effort, success: effort === 100, usage: { total_tokens: 10 + effort } })))).toMatchObject({ minimumSolvableEffort: 100, overComputeRatio: 1 });
+  it("summarizes three supervisor choices and three attempts per choice", () => {
+    const records: RunRecord[] = Array.from({ length: SUPERVISOR_CHOICES }, (_, choice) => Array.from({ length: ATTEMPTS_PER_CHOICE }, (_, attempt) => ({ taskId: "sample", category: "sample", choice: choice + 1, attempt: attempt + 1, effort: (choice === 0 ? "none" : "high") as ReasoningEffort, success: choice > 0, usage: { total_tokens: 10 + choice } }))).flat();
+    expect(taskMetrics(records)).toMatchObject({ successRate: 2 / 3, selectedEfforts: ["none", "high", "high"] });
   });
 
   it("rejects an incomplete effort curve", () => {
-    const records = REASONING_LEVELS.slice(0, -1).map((effort) => ({ taskId: "sample", category: "sample", effort: effort as ReasoningEffort, success: false }));
-    expect(() => taskMetrics(records)).toThrow("one result at every reasoning effort");
+    expect(() => taskMetrics([])).toThrow("three supervisor choices");
   });
 });

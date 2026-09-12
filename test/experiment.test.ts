@@ -1,25 +1,23 @@
 import { describe, expect, it } from "vitest";
-import { REASONING_LEVELS, TASKS, directDeepSeekThinkingRequest, isCorrect, reasoningRequest } from "../src/experiment.js";
+import { CANDIDATE_TASKS, DEMO_TASKS, SUPPORTED_EFFORTS, isCorrect, reasoningRequest } from "../src/experiment.js";
 
 describe("nine by nine reasoning experiment", () => {
-  it("has nine categories with nine original tasks each", () => {
-    expect(new Set(TASKS.map((task) => task.category)).size).toBe(9);
-    expect(TASKS).toHaveLength(81);
-    for (const category of new Set(TASKS.map((task) => task.category))) {
-      expect(TASKS.filter((task) => task.category === category)).toHaveLength(9);
-    }
+  it("curates nine demo tasks from a 33-task, nine-category candidate bank", () => {
+    expect(new Set(CANDIDATE_TASKS.map((task) => task.category)).size).toBe(9);
+    expect(CANDIDATE_TASKS).toHaveLength(33);
+    expect(DEMO_TASKS).toHaveLength(9);
+    expect(new Set(DEMO_TASKS.map((task) => task.category)).size).toBe(9);
   });
 
-  it("uses disabled thinking plus eight evenly spaced numeric effort settings", () => {
-    expect(REASONING_LEVELS).toEqual([0, 12, 25, 38, 50, 63, 75, 88, 100]);
-    expect(reasoningRequest(0)).toEqual({ enabled: false });
-    expect(reasoningRequest(75)).toEqual({ effort: 75 });
-    expect(directDeepSeekThinkingRequest(75)).toEqual({ thinking: { type: "enabled" }, reasoning_effort: 75 });
+  it("allows the supervisor every supported effort including zero reasoning", () => {
+    expect(SUPPORTED_EFFORTS).toEqual(["none", "minimal", "low", "medium", "high", "xhigh", "max"]);
+    expect(reasoningRequest("none")).toEqual({ enabled: false, exclude: true });
+    expect(reasoningRequest("xhigh")).toEqual({ effort: "xhigh", exclude: true });
   });
 
   it("scores exact and diagnostic answers without an LLM", () => {
-    expect(isCorrect(TASKS[0], "Use count === 0")).toBe(true);
-    expect(isCorrect(TASKS[9], "17")).toBe(true);
-    expect(isCorrect(TASKS[9], "The quantity is 17")).toBe(false);
+    expect(isCorrect(CANDIDATE_TASKS[0], "Use count === 0")).toBe(true);
+    expect(isCorrect(CANDIDATE_TASKS[4], "17")).toBe(true);
+    expect(isCorrect(CANDIDATE_TASKS[4], "The quantity is 17")).toBe(false);
   });
 });
